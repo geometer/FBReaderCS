@@ -1,0 +1,61 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FBReader.App.Views.Pages.ContentsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tp="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:pages="clr-namespace:FBReader.AppServices.ViewModels.Pages;assembly=FBReader.AppServices"
+    xmlns:controls="clr-namespace:FBReader.App.Views.Controls" xmlns:converters="clr-namespace:FBReader.App.Converters"
+    xmlns:micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Core"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    telerik:InteractionEffectManager.IsInteractionEnabled="True"
+    mc:Ignorable="d"
+    Style="{StaticResource DefaultApplicationPageStyle}"
+    d:DataContext="{d:DesignInstance pages:ContentsPageViewModel}">
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="True" IsVisible="{Binding IsLoading}"/> 
+    </shell:SystemTray.ProgressIndicator>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
+        <Grid.Resources>
+            <converters:ChapterMarginConverter x:Key="ChapterMarginConverter"/>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        
+        
+        <controls:TitlePanelControl Margin="0 32 0 0"
+            Grid.Row="0" 
+            Title="{Binding Source={StaticResource Localization}, Path=UI.ContentsPage_Title}" />
+
+
+        <ScrollViewer Grid.Row="1">
+            <ItemsControl Margin="24 0"
+                          ItemsSource="{Binding Chapters}">
+                <ItemsControl.ItemTemplate>
+                   <DataTemplate>
+                       <TextBlock Text="{Binding Title}"
+                                  telerik:InteractionEffectManager.ApplyInteractionExplicitly="True"
+                                  micro:Message.Attach="[Event Tap] = [Action GoToChapter($dataContext)]"
+                                  TextWrapping="Wrap"                              
+                                  Margin="{Binding Depth, Converter={StaticResource ChapterMarginConverter}}"
+                                  FontSize="{StaticResource PhoneFontSizeLarge}"/>
+                   </DataTemplate>
+               </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+
+</phone:PhoneApplicationPage>

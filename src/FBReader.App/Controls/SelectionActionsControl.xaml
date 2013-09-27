@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="FBReader.App.Controls.SelectionActionsControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Core" mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+             Width="224" Height="47"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+    <UserControl.Resources>
+        <System:String x:Key="TxtBookmark">txt_bookmark.png</System:String>
+        <System:String x:Key="TxtCopy">txt_copy.png</System:String>
+        <System:String x:Key="TxtShare">txt_share.png</System:String>
+        <System:String x:Key="TxtTranslate">txt_translate.png</System:String>
+        <BitmapImage x:Key="TxtBookmarkImage" UriSource="{Binding Source={StaticResource TxtBookmark}, Converter={StaticResource ImageNameToUriConverter}}"/>
+        <BitmapImage x:Key="TxtCopyImage" UriSource="{Binding Source={StaticResource TxtCopy}, Converter={StaticResource ImageNameToUriConverter}}"/>
+        <BitmapImage x:Key="TxtShareImage" UriSource="{Binding Source={StaticResource TxtShare}, Converter={StaticResource ImageNameToUriConverter}}"/>
+        <BitmapImage x:Key="TxtTranslateImage" UriSource="{Binding Source={StaticResource TxtTranslate}, Converter={StaticResource ImageNameToUriConverter}}"/>
+        
+        <Style x:Key="ActionButtonStyle" TargetType="Image">
+            <Setter Property="telerik:InteractionEffectManager.ApplyInteractionExplicitly" Value="True"/>
+            <Setter Property="Stretch" Value="None" />
+        </Style>
+        
+    </UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="{StaticResource TxtCopyImage}" Tap="CopyButtonOnTap" Hold="ActionButtonOnHold" Style="{StaticResource ActionButtonStyle}"  ManipulationCompleted="ActionManipulationCompleted"/>
+        <Image Source="{StaticResource TxtShareImage}" Grid.Column="2" Tap="ShareButtonOnTap" Hold="ActionButtonOnHold" Style="{StaticResource ActionButtonStyle}" ManipulationCompleted="ActionManipulationCompleted"/>
+        <Image Source="{StaticResource TxtTranslateImage}" Grid.Column="4" Tap="TranslateButtonOnTap" Hold="ActionButtonOnHold" Style="{StaticResource ActionButtonStyle}" ManipulationCompleted="ActionManipulationCompleted"/>
+        <Image Source="{StaticResource TxtBookmarkImage}" Grid.Column="6" Tap="BookmarkButtonOnTap" Hold="ActionButtonOnHold" Style="{StaticResource ActionButtonStyle}" ManipulationCompleted="ActionManipulationCompleted"/>
+        
+    </Grid>
+</UserControl>

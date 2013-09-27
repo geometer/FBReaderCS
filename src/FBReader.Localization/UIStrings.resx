@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddCatalogPage_AppBar_Add" xml:space="preserve">
+    <value>add</value>
+  </data>
+  <data name="AddCatalogPage_EnterCatalogUrl" xml:space="preserve">
+    <value>Type address of OPDS catalogue</value>
+  </data>
+  <data name="AddCatalogPage_EnterCatalogUrlWatermark" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="AddCatalogPage_LowTitle" xml:space="preserve">
+    <value>add</value>
+  </data>
+  <data name="AddCatalogPage_TopTitle" xml:space="preserve">
+    <value>NETWORK LIBRARY</value>
+  </data>
+  <data name="AllCatalogPage_EmptySearchResult" xml:space="preserve">
+    <value>No books found.</value>
+  </data>
+  <data name="AllCatalogsSearchPageViewModel_Title" xml:space="preserve">
+    <value>Search in network library</value>
+  </data>
+  <data name="AllCatalogsSearchPage_Title" xml:space="preserve">
+    <value>SEARCH IN NETWORK LIBRARY</value>
+  </data>
+  <data name="AppBar_AddBtn_Text" xml:space="preserve">
+    <value>add</value>
+  </data>
+  <data name="AppBar_BuyBtn_Text" xml:space="preserve">
+    <value>buy</value>
+  </data>
+  <data name="AppBar_DownloadBtn_Text" xml:space="preserve">
+    <value>download</value>
+  </data>
+  <data name="AppBar_FavoritesBtn_Text" xml:space="preserve">
+    <value>favorite</value>
+  </data>
+  <data name="AppBar_LoginBtn_Text" xml:space="preserve">
+    <value>login</value>
+  </data>
+  <data name="AppBar_RateBtn_Text" xml:space="preserve">
+    <value>rate</value>
+  </data>
+  <data name="AppBar_ReadBtn_Text" xml:space="preserve">
+    <value>read</value>
+  </data>
+  <data name="AppBar_SearchBtn_Text" xml:space="preserve">
+    <value>search</value>
+  </data>
+  <data name="AppBar_SendEmailBtn_Text" xml:space="preserve">
+    <value>send</value>
+  </data>
+  <data name="AppBar_SettingsMenuItem_Text" xml:space="preserve">
+    <value>settings</value>
+  </data>
+  <data name="AppBar_ShareBtn_Text" xml:space="preserve">
+    <value>share</value>
+  </data>
+  <data name="AppBar_SortBtn_Text" xml:space="preserve">
+    <value>sorting</value>
+  </data>
+  <data name="AuthorizationPage_PasswordText" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="AuthorizationPage_TopTitle" xml:space="preserve">
+    <value>AUTHORIZATION</value>
+  </data>
+  <data name="AuthorizationPage_UserNameText" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="BookDownloader_Error" xml:space="preserve">
+    <value>Download error</value>
+  </data>
+  <data name="BookDownloader_Success" xml:space="preserve">
+    <value>Book is downloaded</value>
+  </data>
+  <data name="BookInfoPage_Loading" xml:space="preserve">
+    <value>Loading…</value>
+  </data>
+  <data name="BookInfoPage_Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="BookInfoPage_SelectSharingMethodTitle" xml:space="preserve">
+    <value>SHARE</value>
+  </data>
+  <data name="BookInfoPage_Title" xml:space="preserve">
+    <value>ABOUT</value>
+  </data>
+  <data name="BookInfoPage_Type" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="BookInfo_Annotation" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="BookInfo_Author" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="BookInfo_Categories" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="BookInfo_Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="BookmarkSearchPage_Title" xml:space="preserve">
+    <value>SEARCH IN BOOKMARKS</value>
+  </data>
+  <data name="BookmarksPivot_AllBooks" xml:space="preserve">
+    <value>all books</value>
+  </data>
+  <data name="BookmarksPivot_AllBooks_EmptyList" xml:space="preserve">
+    <value>List of bookmarks is empty</value>
+  </data>
+  <data name="BookmarksPivot_AllBook_EmptyList" xml:space="preserve">
+    <value>List of bookmarks is empty</value>
+  </data>
+  <data name="BookmarksPivot_ThisBook" xml:space="preserve">
+    <value>current book</value>
+  </data>
+  <data name="BookmarksPivot_ThisBook_EmptyList" xml:space="preserve">
+    <value>List of bookmarks is empty</value>
+  </data>
+  <data name="BookmarksPivot_Title" xml:space="preserve">
+    <value>BOOKMARKS</value>
+  </data>
+  <data name="CatalogSearchPage_Title" xml:space="preserve">
+    <value>SEARCH IN {0}</value>
+  </data>
+  <data name="CatalogsView_Title" xml:space="preserve">
+    <value>network library</value>
+  </data>
+  <data name="ContentsPage_Title" xml:space="preserve">
+    <value>CONTENT</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="DownloadListPage_Title" xml:space="preserve">
+    <value>DOWNLOADS</value>
+  </data>
+  <data name="DownloadsListPage_Delete" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="DownloadsListPage_Empty" xml:space="preserve">
+    <value>No downloads in progress.</value>
+  </data>
+  <data name="DownloadsListPage_Restart" xml:space="preserve">
+    <value>repeat</value>
+  </data>
+  <data name="DownloadStatus_Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="DownloadStatus_Downloading" xml:space="preserve">
+    <value>Loading</value>
+  </data>
+  <data name="DownloadStatus_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="DownloadStatus_Parsing" xml:space="preserve">
+    <value>Processing</value>
+  </data>
+  <data name="DownloadStatus_Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="EditBookPage_AppBar_MakeNewTitle" xml:space="preserve">
+    <value>rename</value>
+  </data>
+  <data name="EditBookPage_MakeNewTitle" xml:space="preserve">
+    <value>Type a new book title</value>
+  </data>
+  <data name="EditBookPage_Subtitle" xml:space="preserve">
+    <value>rename</value>
+  </data>
+  <data name="Flibusta_Catalog_Description" xml:space="preserve">
+    <value>Book community</value>
+  </data>
+  <data name="Flibusta_Catalog_Title" xml:space="preserve">
+    <value>Flibusta</value>
+  </data>
+  <data name="Litres_Catalog_Descritption" xml:space="preserve">
+    <value>One click away from a book</value>
+  </data>
+  <data name="Litres_Catalog_Title" xml:space="preserve">
+    <value>Litres</value>
+  </data>
+  <data name="MainPage_AppBarMenu_Downloads" xml:space="preserve">
+    <value>downloads</value>
+  </data>
+  <data name="MainPage_PanoramaTitle" xml:space="preserve">
+    <value>FBReader</value>
+  </data>
+  <data name="ProgressBar_Text" xml:space="preserve">
+    <value>Loading…</value>
+  </data>
+  <data name="ReadPage_AppBar_Apply" xml:space="preserve">
+    <value>apply</value>
+  </data>
+  <data name="ReadPage_AppBar_BookInfo" xml:space="preserve">
+    <value>book info</value>
+  </data>
+  <data name="ReadPage_AppBar_Bookmarks" xml:space="preserve">
+    <value>bookmarks</value>
+  </data>
+  <data name="ReadPage_AppBar_Cancel" xml:space="preserve">
+    <value>cancel</value>
+  </data>
+  <data name="ReadPage_AppBar_ColorScheme" xml:space="preserve">
+    <value>color theme</value>
+  </data>
+  <data name="ReadPage_AppBar_FromFavorites" xml:space="preserve">
+    <value>delete from  favorite</value>
+  </data>
+  <data name="ReadPage_AppBar_Pin" xml:space="preserve">
+    <value>pin to start</value>
+  </data>
+  <data name="ReadPage_AppBar_Search" xml:space="preserve">
+    <value>search</value>
+  </data>
+  <data name="ReadPage_AppBar_Settings" xml:space="preserve">
+    <value>settings</value>
+  </data>
+  <data name="ReadPage_AppBar_Share" xml:space="preserve">
+    <value>share</value>
+  </data>
+  <data name="ReadPage_AppBar_TableOfContent" xml:space="preserve">
+    <value>content</value>
+  </data>
+  <data name="ReadPage_AppBar_ToFavorites" xml:space="preserve">
+    <value>add to favorite</value>
+  </data>
+  <data name="ReadPage_AppBar_ZoomIn" xml:space="preserve">
+    <value>zoom in</value>
+  </data>
+  <data name="ReadPage_AppBar_ZoomOut" xml:space="preserve">
+    <value>zoom out</value>
+  </data>
+  <data name="ReadPage_Bookmark_SelectColor" xml:space="preserve">
+    <value>bookmark colour</value>
+  </data>
+  <data name="SDCard_Catalog_Description" xml:space="preserve">
+    <value>All books from your SD-card.</value>
+  </data>
+  <data name="SDCard_Catalog_Title" xml:space="preserve">
+    <value>SD-card</value>
+  </data>
+  <data name="SearchInBookPage_Title" xml:space="preserve">
+    <value>SEARCH IN BOOK {0}</value>
+  </data>
+  <data name="SearchInBook_EmptyList" xml:space="preserve">
+    <value>No results.</value>
+  </data>
+  <data name="SearchPage_IsEmptyText" xml:space="preserve">
+    <value>No books found.</value>
+  </data>
+  <data name="SearchPage_Title" xml:space="preserve">
+    <value>SEARCH IN MY LIBRARY</value>
+  </data>
+  <data name="Sharing_Email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Sharing_QuoteFormat" xml:space="preserve">
+    <value>Quote from "{0}"</value>
+  </data>
+  <data name="Sharing_Social" xml:space="preserve">
+    <value>Social networks</value>
+  </data>
+  <data name="SkyDrive_Catalog_Description" xml:space="preserve">
+    <value>cloud storage</value>
+  </data>
+  <data name="SkyDrive_Catalog_Title" xml:space="preserve">
+    <value>SkyDrive</value>
+  </data>
+  <data name="TranslateError_Body" xml:space="preserve">
+    <value>An error occurred during the translation. The word(s) being translated might be missing in the dictionary.</value>
+  </data>
+  <data name="TranslateError_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="UserLibararyView_AllBooksButton_Content" xml:space="preserve">
+    <value>all books</value>
+  </data>
+  <data name="UserLibraryPage_AuthorSortMode" xml:space="preserve">
+    <value>By author</value>
+  </data>
+  <data name="UserLibraryPage_FavsTitle" xml:space="preserve">
+    <value>FAVORITE</value>
+  </data>
+  <data name="UserLibraryPage_Favs_Empty" xml:space="preserve">
+    <value>You have not added any book to the list of favorite.</value>
+  </data>
+  <data name="UserLibraryPage_NameSortMode" xml:space="preserve">
+    <value>By name</value>
+  </data>
+  <data name="UserLibraryPage_RemoveFromFavourites" xml:space="preserve">
+    <value>delete from favorite</value>
+  </data>
+  <data name="UserLibraryPage_Sorting" xml:space="preserve">
+    <value>SORT</value>
+  </data>
+  <data name="UserLibraryPage_Title" xml:space="preserve">
+    <value>MY LIBRARY</value>
+  </data>
+  <data name="UserLibraryView_NoItemsText" xml:space="preserve">
+    <value>Try to search in network library to find necessary book.</value>
+  </data>
+  <data name="UserLibraryView_Title" xml:space="preserve">
+    <value>my library</value>
+  </data>
+  <data name="Catalog_Prochtenie_Description" xml:space="preserve">
+    <value>What to read, what to see, where to go, how to live :)</value>
+  </data>
+  <data name="Catalog_Prochtenie_Title" xml:space="preserve">
+    <value>Prochtenie</value>
+  </data>
+  <data name="Catalog_Manybooks_Description" xml:space="preserve">
+    <value>Online Catalog for Manybooks.net</value>
+  </data>
+  <data name="Catalog_Manybooks_Title" xml:space="preserve">
+    <value>ManyBooks.net</value>
+  </data>
+  <data name="AppBar_DeleteBtn_Text" xml:space="preserve">
+    <value>delete demo</value>
+  </data>
+  <data name="AppBar_DownloadTrialBtn_Text" xml:space="preserve">
+    <value>download demo</value>
+  </data>
+  <data name="AppBar_ReadTrialBtn_Text" xml:space="preserve">
+    <value>read demo</value>
+  </data>
+  <data name="MessageBox_NoBtn" xml:space="preserve">
+    <value>no</value>
+  </data>
+  <data name="MessageBox_YesBtn" xml:space="preserve">
+    <value>yes</value>
+  </data>
+  <data name="CatalogPage_Logout_MenuItem" xml:space="preserve">
+    <value>log out</value>
+  </data>
+  <data name="CatalogPage_Refresh_MenuItem" xml:space="preserve">
+    <value>refresh</value>
+  </data>
+</root>

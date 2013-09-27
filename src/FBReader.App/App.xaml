@@ -1,0 +1,42 @@
+﻿<Application
+    x:Class="FBReader.App.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:App="clr-namespace:FBReader.App"
+    xmlns:localization="clr-namespace:FBReader.Localization;assembly=FBReader.Localization"
+    xmlns:converters="clr-namespace:FBReader.App.Converters"
+    xmlns:listPicker="clr-namespace:Telerik.Windows.Controls.ListPicker;assembly=Telerik.Windows.Controls.Input"
+    xmlns:cimbalinoToolkit="clr-namespace:Cimbalino.Phone.Toolkit.Converters;assembly=Cimbalino.Phone.Toolkit">
+    <Application.Resources>
+        <ResourceDictionary>
+            <localization:LocalizationManager x:Key="Localization"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FBReader.App;component/Resources/Styles.xaml"/>
+                <ResourceDictionary Source="/FBReader.App;component/Resources/DataTemplates.xaml"/>
+                <ResourceDictionary>
+                    <App:AppBootstrapper x:Key="Bootstrapper"/>
+                </ResourceDictionary>
+                <ResourceDictionary>
+                    <converters:ImageNameToUriConverter x:Key="ImageNameToUriConverter"/>
+                    <converters:RadioButtonToEnumConverter x:Key="RadioButtonToEnumConverter" />
+                    <converters:StringCaseConverter x:Key="StringCaseConverter" />
+                    <converters:BooleanToDataVirtualizationModeConverter x:Key="BooleanToDataVirtualizationModeConverter" />
+                    <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
+                    <converters:NullToVisibilityConverter x:Key="InvertedNullToVisibilityConverter" InvertValue="True"/>
+                    <converters:IsFavouriteBookToIconConverter x:Key="IsFavouriteBookToIconConverter"/>
+                    <converters:IsFavouriteBookToLocalizedAppBarTextConverter x:Key="IsFavouriteBookToLocalizedAppBarTextConverter"/>
+                    <converters:DownloadStatusToStringConverter x:Key="DownloadStatusToStringConverter"/>
+                    <converters:CatalogBookItemModelToPriceConverter x:Key="CatalogBookItemModelToPriceConverter"/>
+                    <converters:CatalogBookItemModelPriceToVisibilityConverter x:Key="CatalogBookItemModelPriceToVisibilityConverter"/>
+                    <converters:BookImagePathToSourceConverter x:Key="BookImagePathToSourceConverter"/>
+                    <converters:BookInfoPageImageToSourceConverter x:Key="BookInfoPageImageToSourceConverter"/>
+                    <listPicker:SelectionModeToBooleanConverter x:Key="SelectionModeToBooleanConverter" />
+                    <cimbalinoToolkit:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+                    <cimbalinoToolkit:BooleanToVisibilityConverter x:Key="InvertBoolToVisibilityConverter" InvertValue="True"/>
+                    <cimbalinoToolkit:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
+                    <cimbalinoToolkit:StringToUppercaseConverter x:Key="StringToUpperCaseConverter"/>
+                    <cimbalinoToolkit:NegativeBooleanConverter x:Key="NegativeBooleanConverter" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

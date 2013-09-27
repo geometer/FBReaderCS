@@ -1,0 +1,70 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FBReader.App.Views.Pages.Catalogs.AddCatalogPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Controls="clr-namespace:FBReader.App.Views.Controls"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:behaviours="clr-namespace:FBReader.App.Behaviours"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:caliburn="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:cimbalino="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    Style="{StaticResource DefaultApplicationPageStyle}">
+
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="{Binding IsBusy}" 
+                                 IsVisible="{Binding IsBusy}"/>
+    </shell:SystemTray.ProgressIndicator>
+
+    <Grid x:Name="LayoutRoot">
+
+        <i:Interaction.Behaviors>
+            <cimbalino:ApplicationBarBehavior Opacity="0.99"
+                              BackgroundColor="{StaticResource ApplicationBarBackgroundColor}"
+                              ForegroundColor="{StaticResource ApplicationBarForegroundColor}">
+                <cimbalino:ApplicationBarIconButton IconUri="/Resources/Icons/appbar_submit.png"
+                                   Text="{Binding Source={StaticResource Localization}, Path=UI.AppBar_AddBtn_Text}"
+                                   Click="AddCatalog"/>
+            </cimbalino:ApplicationBarBehavior>
+        </i:Interaction.Behaviors>
+
+            <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Controls:TitlePanelControl Grid.Row="0"
+                                    Margin="0,32,0,0"
+                                    Title="{Binding Source={StaticResource Localization}, Path=UI.AddCatalogPage_TopTitle}" 
+                                    Subtitle="{Binding Source={StaticResource Localization}, Path=UI.AddCatalogPage_LowTitle}"/>
+        <TextBlock Grid.Row="1"
+                   Margin="24,18,0,0"
+                   Text="{Binding Source={StaticResource Localization}, Path=UI.AddCatalogPage_EnterCatalogUrl}" 
+                   Foreground="{StaticResource PhoneTextBoxBrush}" 
+                   HorizontalAlignment="Left"/>
+        <telerikPrimitives:RadTextBox Grid.Row="2"
+                                      x:Name="UrlTextBox"
+                                      Margin="12,-12"
+                                      Padding="6,2,0,2"
+                                      Height="80"
+                                      InputScope="Url"
+                                      IsEnabled="{Binding IsNotBusy}"
+                                      ClearButtonVisibility="Collapsed"
+                                      Text="{Binding CatalogUrl, Mode=TwoWay}"
+                                      Watermark="{Binding Source={StaticResource Localization}, Path=UI.AddCatalogPage_EnterCatalogUrlWatermark}"
+                                      KeyDown="CatalogTextBox_KeyDown">
+            <i:Interaction.Behaviors>
+                <behaviours:TextBoxUpdateBindingBehavior/>
+            </i:Interaction.Behaviors>
+        </telerikPrimitives:RadTextBox>
+    </Grid>
+</phone:PhoneApplicationPage>

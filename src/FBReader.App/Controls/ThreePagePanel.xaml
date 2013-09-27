@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="FBReader.App.Controls.ThreePagePanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:FBReader.App.Controls" 
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+    <Grid>
+        <Grid Name="RootGrid">
+            <Canvas Name="FirstPage" Background="{StaticResource PhoneBackgroundBrush}"
+                    CacheMode="BitmapCache"> 
+                <Canvas.RenderTransform>
+                    <TranslateTransform />
+                </Canvas.RenderTransform>
+            </Canvas>
+            <Canvas Name="SecondPage" Background="{StaticResource PhoneBackgroundBrush}"
+                    CacheMode="BitmapCache">
+                <Canvas.RenderTransform>
+                    <TranslateTransform />
+                </Canvas.RenderTransform>
+            </Canvas>
+            <Canvas Name="ThirdPage" Background="{StaticResource PhoneBackgroundBrush}"
+                    CacheMode="BitmapCache">
+                <Canvas.RenderTransform>
+                    <TranslateTransform />
+                </Canvas.RenderTransform>
+            </Canvas>
+        </Grid>
+        <Polygon 
+            x:Name="SelectionPolygon" 
+            Visibility="Collapsed" 
+            Width="{Binding ElementName=RootGrid, Path=ActualWidth}" 
+            Height="{Binding ElementName=RootGrid, Path=ActualHeight}"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"/>
+        <controls:SelectionItemControl x:Name="LeftSelectionItem" Visibility="Collapsed" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <controls:SelectionItemControl x:Name="RightSelectionItem" Visibility="Collapsed" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <controls:SelectionActionsControl x:Name="SelectionActions" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+    </Grid>
+</UserControl>

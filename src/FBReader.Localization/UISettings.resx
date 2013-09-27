@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutPage_DevelopedBy" xml:space="preserve">
+    <value>Developed by </value>
+  </data>
+  <data name="AboutPage_Version" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+  <data name="SettingPage_CSS_IgnoreFontSize" xml:space="preserve">
+    <value>Use font size from CSS</value>
+  </data>
+  <data name="SettingPage_CSS_IgnoreMargins" xml:space="preserve">
+    <value>Use text alignment from CSS</value>
+  </data>
+  <data name="SettingPage_Formatting_CSS_FontSize_On" xml:space="preserve">
+    <value>format font size</value>
+  </data>
+  <data name="SettingPage_Formatting_CSS_FontSize_Off" xml:space="preserve">
+    <value>CSS formatting is off</value>
+  </data>
+  <data name="SettingPage_Formatting_Hyphenation_Off" xml:space="preserve">
+    <value>off</value>
+  </data>
+  <data name="SettingPage_Formatting_Hyphenation_On" xml:space="preserve">
+    <value>on</value>
+  </data>
+  <data name="SettingPage_Hyphenation_Description" xml:space="preserve">
+    <value>Carry over part of a word to the next page</value>
+  </data>
+  <data name="SettingPage_Language_En" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="SettingPage_Language_Ru" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="SettingPage_Pivot_Formatting" xml:space="preserve">
+    <value>formatting</value>
+  </data>
+  <data name="SettingsPage_About" xml:space="preserve">
+    <value>about</value>
+  </data>
+  <data name="SettingsPage_ColorScheme" xml:space="preserve">
+    <value>color theme</value>
+  </data>
+  <data name="SettingsPage_CSS" xml:space="preserve">
+    <value>CSS</value>
+  </data>
+  <data name="SettingsPage_FlippingMode_Slide" xml:space="preserve">
+    <value>By pulling</value>
+  </data>
+  <data name="SettingsPage_FlippingMode_Touch" xml:space="preserve">
+    <value>By tapping</value>
+  </data>
+  <data name="SettingsPage_FlippingMode_TouchOrSlide" xml:space="preserve">
+    <value>Both</value>
+  </data>
+  <data name="SettingsPage_FlippingMode_TouchOrSlide_Full" xml:space="preserve">
+    <value>by tapping or pulling</value>
+  </data>
+  <data name="SettingsPage_FlippingStyle_None" xml:space="preserve">
+    <value>Turn off</value>
+  </data>
+  <data name="SettingsPage_FlippingStyle_Overlap" xml:space="preserve">
+    <value>Shift with overlap</value>
+  </data>
+  <data name="SettingsPage_FlippingStyle_Shift" xml:space="preserve">
+    <value>Shift</value>
+  </data>
+  <data name="SettingsPage_Flipping_AnimationStyle" xml:space="preserve">
+    <value>Page turning animation</value>
+  </data>
+  <data name="SettingsPage_Flipping_FlippingMode" xml:space="preserve">
+    <value>Pave turning method</value>
+  </data>
+  <data name="SettingsPage_Font" xml:space="preserve">
+    <value>font</value>
+  </data>
+  <data name="SettingsPage_Font_FontFamily" xml:space="preserve">
+    <value>Font on  book reading screen</value>
+  </data>
+  <data name="SettingsPage_Font_FontInterval" xml:space="preserve">
+    <value>Spacing</value>
+  </data>
+  <data name="SettingsPage_Font_FontSize" xml:space="preserve">
+    <value>Font size</value>
+  </data>
+  <data name="SettingsPage_Formatting_FlippingMode_Format" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="SettingsPage_Formatting_Font_Format" xml:space="preserve">
+    <value>{0} (size: {1}, spacing: {2:0.0})</value>
+  </data>
+  <data name="SettingsPage_Formatting_Hide" xml:space="preserve">
+    <value>hide</value>
+  </data>
+  <data name="SettingsPage_Formatting_Show" xml:space="preserve">
+    <value>show</value>
+  </data>
+  <data name="SettingsPage_General" xml:space="preserve">
+    <value>general</value>
+  </data>
+  <data name="SettingsPage_Hyphenation" xml:space="preserve">
+    <value>hyphenation</value>
+  </data>
+  <data name="SettingsPage_LockScreen" xml:space="preserve">
+    <value>screen lock</value>
+  </data>
+  <data name="SettingsPage_LockScreen_Description" xml:space="preserve">
+    <value>Automatic screen lock</value>
+  </data>
+  <data name="SettingsPage_Margins" xml:space="preserve">
+    <value>margins</value>
+  </data>
+  <data name="SettingsPage_Margin_Big" xml:space="preserve">
+    <value>Large</value>
+  </data>
+  <data name="SettingsPage_Margin_Middle" xml:space="preserve">
+    <value>Middle</value>
+  </data>
+  <data name="SettingsPage_Margin_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="SettingsPage_Margin_Small" xml:space="preserve">
+    <value>Small</value>
+  </data>
+  <data name="SettingsPage_Menu" xml:space="preserve">
+    <value>application bar</value>
+  </data>
+  <data name="SettingsPage_Menu_Description" xml:space="preserve">
+    <value>Application bar is always hidden</value>
+  </data>
+  <data name="SettingsPage_No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="SettingsPage_Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="SettingsPage_On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="SettingsPage_Orientation_Landscape" xml:space="preserve">
+    <value>Landscape</value>
+  </data>
+  <data name="SettingsPage_Orientation_LandscapeLeft" xml:space="preserve">
+    <value>Landscape left</value>
+  </data>
+  <data name="SettingsPage_Orientation_LandscapeOrPortrait" xml:space="preserve">
+    <value>Depends on device orientation</value>
+  </data>
+  <data name="SettingsPage_Orientation_LandscapeRight" xml:space="preserve">
+    <value>Landscape right</value>
+  </data>
+  <data name="SettingsPage_Orientation_Portrait" xml:space="preserve">
+    <value>Portrait</value>
+  </data>
+  <data name="SettingsPage_Orientation_Title" xml:space="preserve">
+    <value>SCREEN ORIENTATION</value>
+  </data>
+  <data name="SettingsPage_PageFlipping" xml:space="preserve">
+    <value>page turning</value>
+  </data>
+  <data name="SettingsPage_ScreenOrientation" xml:space="preserve">
+    <value>screen orientation</value>
+  </data>
+  <data name="SettingsPage_Themes_Asphalt" xml:space="preserve">
+    <value>Asphalt</value>
+  </data>
+  <data name="SettingsPage_Themes_Coffee" xml:space="preserve">
+    <value>Coffee</value>
+  </data>
+  <data name="SettingsPage_Themes_Day" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="SettingsPage_Themes_GrayOne" xml:space="preserve">
+    <value>Grey 1</value>
+  </data>
+  <data name="SettingsPage_Themes_GrayTwo" xml:space="preserve">
+    <value>Grey 2</value>
+  </data>
+  <data name="SettingsPage_Themes_Night" xml:space="preserve">
+    <value>Night</value>
+  </data>
+  <data name="SettingsPage_Themes_Sepia" xml:space="preserve">
+    <value>Sepia</value>
+  </data>
+  <data name="SettingsPage_Themes_Sky" xml:space="preserve">
+    <value>Sky</value>
+  </data>
+  <data name="SettingsPage_Themes_TextSample" xml:space="preserve">
+    <value>Example</value>
+  </data>
+  <data name="SettingsPage_Title" xml:space="preserve">
+    <value>SETTINGS</value>
+  </data>
+  <data name="SettingsPage_TranslateLanguage" xml:space="preserve">
+    <value>language of translation</value>
+  </data>
+  <data name="SettingsPage_UILanguage" xml:space="preserve">
+    <value>language of UI</value>
+  </data>
+  <data name="SettingsPage_Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+</root>

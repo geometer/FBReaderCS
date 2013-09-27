@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="FBReader.App.Controls.ApplicationBar.FBReaderApplicationBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Core"
+    xmlns:ApplicationBar="clr-namespace:FBReader.App.Controls.ApplicationBar"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+             mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    telerik:InteractionEffectManager.IsInteractionEnabled="True"
+    Height="430" Width="480"
+    x:Name="AppBar">
+    
+    <Border x:Name="RootBorder"
+            CacheMode="BitmapCache"
+            Background="{Binding ElementName=AppBar, Path=Background}" >            
+        <Border.RenderTransform>
+            <TranslateTransform /> 
+        </Border.RenderTransform>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="60"/>
+                </Grid.ColumnDefinitions>
+                    
+                <ApplicationBar:FBSlider VerticalAlignment="Top"
+                                         Foreground="{Binding ElementName=AppBar, Path=SliderForegroundBrush}"
+                                         Background="#3FFF"
+                                         Maximum="{Binding ElementName=AppBar, Path=TotalPages}"
+                                         Minimum="1"                                         
+                                         Value="{Binding ElementName=AppBar, Path=PageNumber, Mode=TwoWay}"
+                                         IsMinimized="True"
+                                         x:Name="Slider"/>                       
+                
+                <StackPanel Grid.Column="1"                                
+                            VerticalAlignment="Center"
+                            Margin="0 -1 0 0"
+                            Orientation="Horizontal">
+                    <TextBlock Text="{Binding ElementName=AppBar, Path=PageNumber}" FontSize="13.33"/>
+                    <TextBlock Text="/"  FontSize="13.33" Foreground="Gray"/>
+                    <TextBlock Text="{Binding ElementName=AppBar, Path=TotalPages}" FontSize="13.33" Foreground="Gray"/>
+                </StackPanel>
+                    
+                <!-- 3 ellipses -->
+                <Border HorizontalAlignment="Right"                        
+                        VerticalAlignment="Center"
+                        Grid.Column="2"
+                        Padding="24 24 0 24"
+                        Margin="-24 -24 0 -24"
+                        Background="Transparent"
+                        ManipulationStarted="OnManipulationStarted"
+                        ManipulationDelta="OnManipulationDelta"
+                        ManipulationCompleted="OnManipulationCompleted">
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0 0 18 0">
+                        <Ellipse Fill="White" Width="6" Height="6" />
+                        <Ellipse Fill="White" Margin="4 0 0 0" Width="6" Height="6" />
+                        <Ellipse Fill="White" Margin="4 0 0 0" Width="6" Height="6" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+
+            <Grid Grid.Row="1"
+                  Margin="0 6"
+                  CacheMode="BitmapCache"
+                  x:Name="IconButtonsGrid">
+                
+                <Grid.RenderTransform>
+                    <TranslateTransform />
+                </Grid.RenderTransform>
+                <!-- Icon buttons -->
+                <ItemsControl HorizontalAlignment="Center"
+                              ItemsSource="{Binding ElementName=AppBar, Path=IconButtons}"
+                              x:Name="IconButtonsPanel">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ApplicationBar:FBReaderApplicationBarIconControl 
+                                telerik:InteractionEffectManager.ApplyInteractionExplicitly="true"
+                                Tap="AppBarItemClick"
+                                Icon="{Binding Icon}"
+                                Text="{Binding Text}"
+                                IsEnabled="{Binding IsEnabled}"
+                                Width="100"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+               <StackPanel Orientation="Horizontal"
+                           HorizontalAlignment="Center"
+                           x:Name="PageSelectionButtonsPanel">
+                   <StackPanel.RenderTransform>
+                       <TranslateTransform X="800"/>
+                   </StackPanel.RenderTransform>
+
+                    <ApplicationBar:FBReaderApplicationBarIconControl 
+                                telerik:InteractionEffectManager.ApplyInteractionExplicitly="true"
+                                Tap="ApplyPageSelectionClick"
+                                Icon="/Resources/Icons/appbar_submit.png"
+                                Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_Apply}"
+                                Width="100"/>
+
+                    <ApplicationBar:FBReaderApplicationBarIconControl 
+                                telerik:InteractionEffectManager.ApplyInteractionExplicitly="true"
+                                Tap="CancelPageSelectionClick"
+                                Icon="/Resources/Icons/cancel.png"
+                                Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_Cancel}"
+                                Width="100"/>
+
+                </StackPanel>
+            </Grid>
+
+            <!-- Menu buttons -->
+            <ScrollViewer Grid.Row="2" Name="MenuScroll">
+                <ItemsControl Margin="24 0 24 12"
+                                ItemsSource="{Binding ElementName=AppBar, Path=MenuItems}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                           <ApplicationBar:FBReaderApplicationBarMenuItemControl Tap="AppBarItemClick"
+                                                                                 Text="{Binding Text}"
+                                                                                 IsEnabled="{Binding IsEnabled}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</UserControl>

@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="FBReader.App.Views.Pages.Bookmarks.ThisBookBookmarksView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Core"
+    xmlns:Bookmarks="clr-namespace:FBReader.AppServices.ViewModels.Pages.Bookmarks;assembly=FBReader.AppServices"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480"
+    d:DataContext="{d:DesignInstance Type=Bookmarks:ThisBookBookmarksViewModel}">
+    
+    <Grid x:Name="LayoutRoot">
+        <telerikPrimitives:RadDataBoundListBox 
+            x:Name="List"
+            Margin="0 12 0 0"
+            ItemsSource="{Binding Bookmarks}"
+            ItemTemplate="{StaticResource BookmarkItemDataTemplate}"
+            EmptyContent="{Binding EmptyContent}"
+            EmptyContentDisplayMode="DataSourceEmpty">
+            <telerikPrimitives:RadDataBoundListBox.EmptyContentTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" TextWrapping="Wrap" Margin="24 0"/>
+                </DataTemplate>
+            </telerikPrimitives:RadDataBoundListBox.EmptyContentTemplate>
+            
+            <telerikPrimitives:RadContextMenu.ContextMenu>
+                <telerikPrimitives:RadContextMenu Opening="RadContextMenu_OnOpening">
+                    <telerikPrimitives:RadContextMenuItem 
+                            Content="{Binding Source={StaticResource Localization}, Path=UI.Delete}" Tap="UIElement_OnTap"/>
+                </telerikPrimitives:RadContextMenu>
+            </telerikPrimitives:RadContextMenu.ContextMenu>
+        </telerikPrimitives:RadDataBoundListBox>
+    </Grid>
+</UserControl>

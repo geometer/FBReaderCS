@@ -1,0 +1,58 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FBReader.App.Views.Pages.Bookmarks.BookmarksPivot"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Core"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:cimbalino="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit" mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    telerik:InteractionEffectManager.IsInteractionEnabled="True"
+    Style="{StaticResource DefaultApplicationPageStyle}">
+
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
+
+        <i:Interaction.Behaviors>
+
+            <cimbalino:ApplicationBarBehavior BackgroundColor="{StaticResource ApplicationBarBackgroundColor}"
+                                          ForegroundColor="{StaticResource ApplicationBarForegroundColor}">
+                <cimbalino:ApplicationBarIconButton 
+                        IconUri="/Resources/Icons/appbar_add.png" 
+                        Text="{Binding Source={StaticResource Localization}, Path=UI.AppBar_AddBtn_Text}"
+                        Click="OnAddClick"/>
+                <cimbalino:ApplicationBarIconButton 
+                        IconUri="/Resources/Icons/appbar_search.png" 
+                        Text="{Binding Source={StaticResource Localization}, Path=UI.AppBar_SearchBtn_Text}"
+                        Click="OnSearchClick"/>
+            </cimbalino:ApplicationBarBehavior>
+        </i:Interaction.Behaviors>
+
+        <phone:Pivot 
+            x:Name="Items" 
+            Title="{Binding Source={StaticResource Localization}, Path=UI.BookmarksPivot_Title}"
+            SelectedItem="{Binding ActiveItem, Mode=TwoWay}"
+            Margin="0 32 0 0">
+            <phone:Pivot.TitleTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" Margin="0 -1 0 -3" />
+                </DataTemplate>
+            </phone:Pivot.TitleTemplate>
+            <phone:Pivot.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding DisplayName}"/>
+                </DataTemplate>
+            </phone:Pivot.HeaderTemplate>
+            <phone:Pivot.ItemContainerStyle>
+                <Style TargetType="phone:PivotItem">
+                    <Setter Property="Margin" Value="0 14 0 0" />
+                </Style>
+            </phone:Pivot.ItemContainerStyle>
+        </phone:Pivot>
+    </Grid>
+</phone:PhoneApplicationPage>

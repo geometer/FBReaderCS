@@ -1,0 +1,143 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FBReader.App.Views.Pages.Settings.MarginsSettingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Settings="clr-namespace:FBReader.AppServices.ViewModels.Pages.Settings;assembly=FBReader.AppServices"
+    xmlns:Controls="clr-namespace:FBReader.App.Views.Controls"
+    xmlns:AppSettings="clr-namespace:FBReader.Settings;assembly=FBReader.Settings"
+    xmlns:System="clr-namespace:System;assembly=mscorlib" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    Style="{StaticResource DefaultApplicationPageStyle}"
+    d:DataContext="{d:DesignInstance Type=Settings:MarginsSettingPageViewModel}">
+
+    <phone:PhoneApplicationPage.Resources>
+        <System:String x:Key="BigDevice">DevBig.png</System:String>
+        <BitmapImage x:Key="PhoneBigImage" UriSource="{Binding Source={StaticResource BigDevice}, Converter={StaticResource ImageNameToUriConverter}}"/>
+        <Style x:Key="MarginRadioButton" TargetType="RadioButton" BasedOn="{StaticResource SettingsRadioButtonStyle}">
+            <Setter Property="MinWidth" Value="96" />
+            <Setter Property="MinHeight" Value="96" />
+            <Setter Property="Margin" Value="8 0" />
+        </Style>
+        
+        <Style x:Key="MarginGridButtonStyle" TargetType="Controls:MarginGridControl">
+            <Setter Property="StrokeThickness" Value="1" />
+            <Setter Property="Width" Value="90" />
+            <Setter Property="Height" Value="90" />
+            <Setter Property="LineBrush" Value="#FF8E8E8E" />
+        </Style>
+        
+    </phone:PhoneApplicationPage.Resources>
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,48,0,36">
+            <TextBlock 
+                Text="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_Margins, Converter={StaticResource StringCaseConverter}, ConverterParameter=U}" 
+                Style="{StaticResource TitleStyle}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            
+            <Grid VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Image Source="{StaticResource PhoneBigImage}" Stretch="None" />
+                <Grid
+                    x:Name="Display"
+                    Width="263" Height="405" Margin="0 0 0 16">
+                    <TextBlock 
+                        VerticalAlignment="Top"
+                        x:Name="DummyText" 
+                        TextWrapping="Wrap" 
+                        LineHeight="20" 
+                        FontSize="14"
+                        Opacity="0.55"
+                        LineStackingStrategy="BlockLineHeight" 
+                        MaxHeight="405"
+                        >
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum felis ac ligula fermentum ultrices. Nullam consectetur suscipit dui, sit amet imperdiet tellus. Nullam at lacinia nibh. Quisque facilisis venenatis ante, ac tempus sapien aliquet molestie. Integer arcu ante, ultricies pharetra aliquam et, vehicula vitae eros. Duis sed felis a dolor accumsan adipiscing. Vestibulum vel lacus in nisi porta tincidunt. Aliquam tempus dignissim lectus a molestie. Aliquam sed lacus vitae lectus commodo consequat. Aliquam adipiscing quis velit at congue. Maecenas sit amet massa a velit ornare blandit non vel arcu. Curabitur iaculis non odio at iaculis. Sed dapibus, odio feugiat aliquam porttitor, tellus eros tempus nisi, vel ornare arcu sem sed ligula.
+
+Cras venenatis rhoncus ultricies. Nulla risus lectus, consectetur in odio non, accumsan euismod magna. Vestibulum pretium vitae justo vel vestibulum. In et suscipit ligula, a facilisis tellus. Maecenas vel felis dui. Suspendisse consequat suscipit nisl sollicitudin vehicula. Vivamus a tellus ac ipsum luctus blandit quis quis magna. Sed ut diam eu sem imperdiet feugiat non vitae felis. Curabitur porta, tellus a consectetur adipiscing, enim justo suscipit tortor, non convallis lorem velit ut elit. Pellentesque eleifend mollis rutrum. Duis convallis suscipit justo eu sodales. Donec sed leo feugiat, pellentesque risus eget, posuere nunc. Aenean vel purus libero. Proin turpis felis, faucibus quis congue quis, luctus a arcu.
+
+Phasellus posuere enim sit amet lorem placerat aliquet. Curabitur posuere, felis a cursus facilisis, orci tellus venenatis velit, nec suscipit tellus libero nec turpis. Nunc sit amet eros ultrices, euismod magna non, dapibus neque. Duis vel lectus elementum, interdum justo quis, mattis tellus. Morbi pulvinar mauris vitae aliquet congue. Curabitur semper enim tortor, aliquet mattis velit interdum ut. Quisque convallis diam vel metus laoreet, sed ultrices orci varius. Quisque convallis lacus nec felis consectetur consequat. Nam tempor ligula vel luctus convallis. Ut vitae ornare mauris, id luctus nisi. Nam tortor purus, suscipit aliquet ornare non, convallis ac risus. Fusce eget hendrerit quam. Aliquam turpis augue, malesuada eu lectus vitae, adipiscing condimentum magna. Duis elementum, urna dapibus vulputate posuere, nibh enim malesuada diam, vitae suscipit elit nulla at diam. In aliquet neque et rutrum bibendum.
+                    </TextBlock>
+                    <Controls:MarginGridControl 
+                        x:Name="LineGrid"
+                        Width="263" Height="405" StrokeThickness="1" LineBrush="#FF99865e"/>
+                </Grid>
+            </Grid>
+            
+            <StackPanel Orientation="Horizontal" Margin="4 0 0 24" VerticalAlignment="Bottom">
+                <RadioButton Content="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_Margin_None}" Style="{StaticResource MarginRadioButton}" GroupName="1" ClickMode="Hover">
+                    <RadioButton.IsChecked>
+                        <Binding Path="MarginKey" Converter="{StaticResource RadioButtonToEnumConverter}" Mode="TwoWay">
+                            <Binding.ConverterParameter>
+                                <AppSettings:SupportedMargins>None</AppSettings:SupportedMargins>
+                            </Binding.ConverterParameter>
+                        </Binding>
+                    </RadioButton.IsChecked>
+                    <RadioButton.ContentTemplate>
+                        <DataTemplate>
+                            <Controls:MarginGridControl LineMargins="1" Style="{StaticResource MarginGridButtonStyle}"/>
+                        </DataTemplate>
+                    </RadioButton.ContentTemplate>
+                </RadioButton>
+                <RadioButton Content="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_Margin_Small}" Style="{StaticResource MarginRadioButton}" GroupName="1" ClickMode="Hover">
+                    <RadioButton.IsChecked>
+                        <Binding Path="MarginKey" Converter="{StaticResource RadioButtonToEnumConverter}" Mode="TwoWay">
+                            <Binding.ConverterParameter>
+                                <AppSettings:SupportedMargins>Small</AppSettings:SupportedMargins>
+                            </Binding.ConverterParameter>
+                        </Binding>
+                    </RadioButton.IsChecked>
+                    <RadioButton.ContentTemplate>
+                        <DataTemplate>
+                            <Controls:MarginGridControl LineMargins="5" Style="{StaticResource MarginGridButtonStyle}"/>
+                        </DataTemplate>
+                    </RadioButton.ContentTemplate>
+                </RadioButton>
+                <RadioButton Content="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_Margin_Middle}" Style="{StaticResource MarginRadioButton}" GroupName="1" ClickMode="Hover">
+                    <RadioButton.IsChecked>
+                        <Binding Path="MarginKey" Converter="{StaticResource RadioButtonToEnumConverter}" Mode="TwoWay">
+                            <Binding.ConverterParameter>
+                                <AppSettings:SupportedMargins>Medium</AppSettings:SupportedMargins>
+                            </Binding.ConverterParameter>
+                        </Binding>
+                    </RadioButton.IsChecked>
+                    <RadioButton.ContentTemplate>
+                        <DataTemplate>
+                            <Controls:MarginGridControl LineMargins="10" Style="{StaticResource MarginGridButtonStyle}"/>
+                        </DataTemplate>
+                    </RadioButton.ContentTemplate>
+                </RadioButton>
+                <RadioButton Content="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_Margin_Big}" Style="{StaticResource MarginRadioButton}" GroupName="1" ClickMode="Hover">
+                    <RadioButton.IsChecked>
+                        <Binding Path="MarginKey" Converter="{StaticResource RadioButtonToEnumConverter}" Mode="TwoWay">
+                            <Binding.ConverterParameter>
+                                <AppSettings:SupportedMargins>Big</AppSettings:SupportedMargins>
+                            </Binding.ConverterParameter>
+                        </Binding>
+                    </RadioButton.IsChecked>
+                    <RadioButton.ContentTemplate>
+                        <DataTemplate>
+                            <Controls:MarginGridControl LineMargins="13" Style="{StaticResource MarginGridButtonStyle}"/>
+                        </DataTemplate>
+                    </RadioButton.ContentTemplate>
+                </RadioButton>
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

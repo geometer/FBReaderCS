@@ -1,0 +1,47 @@
+/*
+ * Author: CactusSoft (http://cactussoft.biz/), 2013
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ * 02110-1301, USA.
+ */
+
+using System.Collections.Generic;
+using FBReader.Tokenizer.Tokens;
+
+namespace FBReader.Tokenizer.TextStructure
+{
+    public class PageInfo
+    {
+        public PageInfo()
+        {
+            Paragraphs = new List<ParagraphInfo>();
+            Lines = new List<TokenBlockBase>();
+        }
+
+        public int PageIndex { get; set; }
+
+        public int FirstTokenID { get; set; }
+
+        public int LastTokenID { get; set; }
+
+        public string StartText { get; set; }
+
+        public string LastTextPart { get; set; }
+
+        public List<ParagraphInfo> Paragraphs { get; set; }
+
+        public List<TokenBlockBase> Lines { get; private set; }
+    }
+}

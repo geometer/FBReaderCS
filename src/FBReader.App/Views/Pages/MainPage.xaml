@@ -1,0 +1,112 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FBReader.App.Views.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:designViewModels="clr-namespace:FBReader.App.DesignViewModels.Pages"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:cimbalino="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="False"
+    d:DataContext="{d:DesignInstance designViewModels:MainPageDesignViewModel, IsDesignTimeCreatable=True}">
+    <phone:PhoneApplicationPage.Resources>
+        <system:String x:Key="PanoramaBackround">MainPagePanoramaBackround.jpg</system:String>
+        <system:String x:Key="Logo">AppLogo.png</system:String>
+    </phone:PhoneApplicationPage.Resources>
+    <Grid>
+        <i:Interaction.Behaviors>
+            
+            <cimbalino:MultiApplicationBarBehavior SelectedIndex="{Binding AppBarSelectedIndex}">
+                <cimbalino:ApplicationBar BackgroundColor="{StaticResource ApplicationBarBackgroundColor}"
+                                          ForegroundColor="{StaticResource ApplicationBarForegroundColor}"
+                                          Opacity="0.99">
+                    <cimbalino:ApplicationBarIconButton 
+                        IconUri="/Resources/Icons/search.png" 
+                        Click="NavigateToSearchBooks"
+                        Text="{Binding Source={StaticResource Localization}, Path=UI.AppBar_SearchBtn_Text}"/>
+                    <cimbalino:ApplicationBarIconButton 
+                        IconUri="/Resources/Icons/appbar_favorites.png" 
+                        Text="{Binding Source={StaticResource Localization}, Path=UI.AppBar_FavoritesBtn_Text}"
+                        Click="OnToFavouritesClick"/>
+                    <cimbalino:ApplicationBar.MenuItems>
+                        <cimbalino:ApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.AppBar_SettingsMenuItem_Text}" Click="Settings"/>
+                        <cimbalino:ApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.MainPage_AppBarMenu_Downloads}" Click="Downloads"/>
+                    </cimbalino:ApplicationBar.MenuItems>
+                </cimbalino:ApplicationBar>
+                <cimbalino:ApplicationBar BackgroundColor="{StaticResource ApplicationBarBackgroundColor}"
+                                          ForegroundColor="{StaticResource ApplicationBarForegroundColor}"
+                                          Opacity="0.99">
+                    <cimbalino:ApplicationBarIconButton 
+                        IconUri="/Resources/Icons/appbar_add.png"
+                        Click="OnAddClick"
+                        Text="{Binding Source={StaticResource Localization}, Path=UI.AppBar_AddBtn_Text}"/>
+                    <cimbalino:ApplicationBarIconButton 
+                        IconUri="/Resources/Icons/search.png"
+                        Click="OnSearchCatalogsClick"
+                        Text="{Binding Source={StaticResource Localization}, Path=UI.AppBar_SearchBtn_Text}"/>
+                    <cimbalino:ApplicationBar.MenuItems>
+                        <cimbalino:ApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.AppBar_SettingsMenuItem_Text}" Click="Settings"/>
+                        <cimbalino:ApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.MainPage_AppBarMenu_Downloads}" Click="Downloads"/>
+                    </cimbalino:ApplicationBar.MenuItems>
+                </cimbalino:ApplicationBar>
+                </cimbalino:MultiApplicationBarBehavior>
+        </i:Interaction.Behaviors>
+        <phone:Panorama SelectionChanged="PanoramaOnSelectionChanged">
+            <phone:Panorama.Background>
+                <ImageBrush ImageSource="{Binding Source={StaticResource PanoramaBackround}, Converter={StaticResource ImageNameToUriConverter}}"/> 
+            </phone:Panorama.Background>    
+            <phone:Panorama.HeaderTemplate>
+                <DataTemplate>
+                    <TextBlock
+                        FontSize="62"
+                        Margin="0,-18,0,0"
+                        FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                        Foreground="{StaticResource PhoneAccentBrush}"
+                        Text="{Binding}"/>
+                </DataTemplate>
+            </phone:Panorama.HeaderTemplate>
+            <phone:Panorama.TitleTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image 
+                            Margin="12,24,20,0"
+                            Source="{Binding Source={StaticResource Logo}, Converter={StaticResource ImageNameToUriConverter}}"/>
+                        <TextBlock 
+                            Margin="0,12,0,0"
+                            FontSize="108.07"
+                            FontFamily="{StaticResource PhoneFontFamilyLight}"
+                            Text="{Binding Path=UI.MainPage_PanoramaTitle, Source={StaticResource Localization}}"/>    
+                    </StackPanel>
+                </DataTemplate>
+            </phone:Panorama.TitleTemplate>
+            <phone:Panorama.Items>
+                <phone:PanoramaItem Header="{Binding Source={StaticResource Localization}, Path=UI.UserLibraryView_Title}"
+                                    Orientation="Horizontal"
+                                    Width="545">
+                    <ContentControl 
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Margin="0,-6,0,0"
+                            cal:View.Model="{Binding UserLibraryViewModel}"/>
+                </phone:PanoramaItem>
+                <phone:PanoramaItem Header="{Binding Source={StaticResource Localization}, Path=UI.CatalogsView_Title}">
+                    <ContentControl 
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Margin="0,-6,0,0"
+                            cal:View.Model="{Binding CatalogsViewModel}"/>
+                </phone:PanoramaItem>
+            </phone:Panorama.Items>
+           </phone:Panorama>
+    </Grid>
+</phone:PhoneApplicationPage>
+    

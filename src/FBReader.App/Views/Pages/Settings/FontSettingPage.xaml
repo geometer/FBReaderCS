@@ -1,0 +1,94 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FBReader.App.Views.Pages.Settings.FontSettingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Controls="clr-namespace:FBReader.App.Views.Controls"
+    xmlns:telerikInput="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+    xmlns:Settings="clr-namespace:FBReader.AppServices.ViewModels.Pages.Settings;assembly=FBReader.AppServices"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    Style="{StaticResource DefaultApplicationPageStyle}"
+    d:DataContext="{d:DesignInstance Type=Settings:FontSettingPageViewModel}">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <Controls:TitlePanelControl Margin="0 32 0 0"
+            Grid.Row="0" 
+            Title="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_Title}" 
+            Subtitle="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_Font}" />
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="18" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock 
+                Grid.Row="1"
+                Text="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_Font_FontFamily}" Foreground="{StaticResource PhoneTextBoxBrush}" 
+                Margin="12,0,0,0"
+                HorizontalAlignment="Left"/>
+            <telerikInput:RadListPicker 
+                Grid.Row="2" 
+                Margin="12 0" 
+                ItemsSource="{Binding Fonts}"
+                SelectedItem="{Binding SelectedFont, Mode=TwoWay}"
+                PopupHeader="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_Font_FontFamily, Converter={StaticResource StringCaseConverter}, ConverterParameter=U}">
+                <telerikInput:RadListPicker.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock FontFamily="{Binding}" Text="{Binding}" VerticalAlignment="Center" />
+                    </DataTemplate>
+                </telerikInput:RadListPicker.ItemTemplate>
+            </telerikInput:RadListPicker>
+            <TextBlock 
+                Grid.Row="4"
+                Text="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_Font_FontSize}" Foreground="{StaticResource PhoneTextBoxBrush}" 
+                Margin="12,0,0,0"
+                HorizontalAlignment="Left"/>
+            <telerikInput:RadListPicker
+                Grid.Row="5" 
+                Margin="12 0" 
+                ItemsSource="{Binding Sizes}"
+                SelectedItem="{Binding SelectedSize, Mode=TwoWay}"
+                PopupHeader="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_Font_FontSize, Converter={StaticResource StringCaseConverter}, ConverterParameter=U}"/>
+            <TextBlock 
+                Grid.Row="7"
+                Text="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_Font_FontInterval}" Foreground="{StaticResource PhoneTextBoxBrush}" 
+                Margin="12,0,0,0"
+                HorizontalAlignment="Left"/>
+            <telerikInput:RadListPicker 
+                Grid.Row="8" 
+                Margin="12 0" 
+                ItemsSource="{Binding Intervals}"
+                SelectedItem="{Binding SelectedInterval, Mode=TwoWay}"
+                PopupHeader="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_Font_FontInterval, Converter={StaticResource StringCaseConverter}, ConverterParameter=U}">
+                <telerikInput:RadListPicker.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding StringFormat=\{0:0.0\}}" />
+                    </DataTemplate>
+                </telerikInput:RadListPicker.ItemTemplate>
+            </telerikInput:RadListPicker>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

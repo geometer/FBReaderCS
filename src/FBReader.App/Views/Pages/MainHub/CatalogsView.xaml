@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="FBReader.App.Views.Pages.MainHub.CatalogsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:designViewModels="clr-namespace:FBReader.App.DesignViewModels.MainHub"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Core"
+             xmlns:controls="clr-namespace:FBReader.App.Controls"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+             mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480"
+    d:DesignWidth="480"
+    d:DataContext="{d:DesignInstance designViewModels:CatalogsDesignViewModel, IsDesignTimeCreatable=True}"
+    telerik:InteractionEffectManager.IsInteractionEnabled="true">
+    
+    <UserControl.Resources>
+        <DataTemplate x:Key="CatalogDataTemplate">
+            <Button Style="{StaticResource EmptyButtonStyle}"
+                    Margin="0,0,0,24"
+                    cal:Message.Attach="[Event Tap] = [Action NavigateToCatalog($dataContext)]">
+                <Grid DataContext="{Binding}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <controls:PlaceholderImage 
+                        Grid.Column="0"
+                        VerticalAlignment="Top"
+                        Width="90"
+                        Height="90"
+                        IsFrozen="True"
+                        ImageSource="{Binding Icon}"
+                        PlaceholderSource="/Resources/Icons/empty_catalog.png"/>
+                    <StackPanel Grid.Column="1"
+                                Margin="12,-6,0,0">
+                        <TextBlock TextWrapping="Wrap"
+                                   VerticalAlignment="Top"
+                                   MaxHeight="56"
+                                   LineHeight="27"
+                                   FontSize="22"
+                                   LineStackingStrategy="BlockLineHeight"
+                                   FontWeight="black"
+                                   Text="{Binding Title, Converter={StaticResource StringToUpperCaseConverter}}"/>
+                        <TextBlock TextWrapping="Wrap"
+                                   FontSize="17"
+                                   MaxHeight="56"
+                                   LineHeight="20"
+                                   LineStackingStrategy="BlockLineHeight"
+                                   Foreground="#D8D7D6"
+                                   Text="{Binding Description}"/>
+                    </StackPanel>
+                </Grid>
+            </Button>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" 
+          Margin="12,0,0,60"
+          Background="Transparent">
+        <telerikPrimitives:RadDataBoundListBox ItemsSource="{Binding Catalogs}"
+                                               ItemTemplate="{StaticResource CatalogDataTemplate}">
+            <telerikPrimitives:RadDataBoundListBox.ListFooterTemplate>
+                <DataTemplate>
+                    <ContentControl Height="36"/>
+                </DataTemplate>
+            </telerikPrimitives:RadDataBoundListBox.ListFooterTemplate>
+
+            <telerikPrimitives:RadContextMenu.ContextMenu>
+                <telerikPrimitives:RadContextMenu Opening="RadContextMenu_OnOpening">
+                    <telerikPrimitives:RadContextMenuItem 
+                            Content="{Binding Source={StaticResource Localization}, Path=UI.Delete}" Tap="UIElement_OnTap"/>
+                </telerikPrimitives:RadContextMenu>
+            </telerikPrimitives:RadContextMenu.ContextMenu>
+        </telerikPrimitives:RadDataBoundListBox>
+    </Grid>
+</UserControl>

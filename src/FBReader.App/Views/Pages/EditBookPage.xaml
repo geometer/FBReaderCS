@@ -1,0 +1,70 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FBReader.App.Views.Pages.EditBookPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Controls="clr-namespace:FBReader.App.Views.Controls"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:behaviours="clr-namespace:FBReader.App.Behaviours"
+    xmlns:caliburn="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:cimbalino="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    Style="{StaticResource DefaultApplicationPageStyle}">
+
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="{Binding IsBusy}" 
+                                 IsVisible="{Binding IsBusy}"/>
+    </shell:SystemTray.ProgressIndicator>
+
+    <Grid x:Name="LayoutRoot">
+
+        <i:Interaction.Behaviors>
+            <cimbalino:ApplicationBarBehavior Opacity="0.99"
+                              BackgroundColor="{StaticResource ApplicationBarBackgroundColor}"
+                              ForegroundColor="{StaticResource ApplicationBarForegroundColor}">
+                <cimbalino:ApplicationBarIconButton 
+                    IconUri="/Resources/Icons/appbar_submit.png"
+                    Text="{Binding Source={StaticResource Localization}, Path=UI.EditBookPage_AppBar_MakeNewTitle}"
+                    Click="MakeNewTitle"/>
+            </cimbalino:ApplicationBarBehavior>
+        </i:Interaction.Behaviors>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Controls:TitlePanelControl Grid.Row="0"
+                                    Margin="0,32,0,0"
+                                    Title="{Binding PageTitle}" 
+                                    Subtitle="{Binding Source={StaticResource Localization}, Path=UI.EditBookPage_Subtitle}"/>
+        <TextBlock Grid.Row="1"
+                   Margin="24,18,0,0"
+                   Text="{Binding Source={StaticResource Localization}, Path=UI.EditBookPage_MakeNewTitle}" 
+                   Foreground="{StaticResource PhoneTextBoxBrush}" 
+                   HorizontalAlignment="Left"/>
+        <telerikPrimitives:RadTextBox Grid.Row="2"
+                                      x:Name="PageTitleTextBox"
+                                      Margin="12,-12"
+                                      Padding="6,2,0,2"
+                                      Height="80"
+                                      InputScope="Search"
+                                      IsEnabled="{Binding IsNotBusy}"
+                                      ClearButtonVisibility="Collapsed"
+                                      Text="{Binding Title, Mode=TwoWay}"
+                                      KeyDown="MakeNewTitleClick">
+            <i:Interaction.Behaviors>
+                <behaviours:TextBoxUpdateBindingBehavior/>
+            </i:Interaction.Behaviors>
+        </telerikPrimitives:RadTextBox>
+    </Grid>
+</phone:PhoneApplicationPage>

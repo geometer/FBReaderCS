@@ -1,0 +1,163 @@
+﻿<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Common colors -->
+
+    <!-- 100 percent White -->
+    <Color x:Key="PhoneForegroundColor">#FFFFFFFF</Color>
+
+    <!-- 100 percent Black -->
+    <Color x:Key="PhoneBackgroundColor">#FF000000</Color>
+
+    <!-- 100 percent Black -->
+    <Color x:Key="PhoneContrastForegroundColor">#FF000000</Color>
+
+    <!-- 100 percent White -->
+    <Color x:Key="PhoneContrastBackgroundColor">#FFFFFFFF</Color>
+
+    <!-- 40 percent White -->
+    <Color x:Key="PhoneDisabledColor">#66FFFFFF</Color>
+
+    <!-- 10 percent White -->
+    <Color x:Key="PhoneProgressBarBackgroundColor">#19FFFFFF</Color>
+
+
+    <!-- TextBox colors -->
+
+    <!-- 100 percent Black -->
+    <Color x:Key="PhoneTextCaretColor">#FF000000</Color>
+
+    <!-- 75 percent White -->
+    <Color x:Key="PhoneTextBoxColor">#BFFFFFFF</Color>
+
+    <!-- 100 percent Black -->
+    <Color x:Key="PhoneTextBoxForegroundColor">#FF000000</Color>
+
+    <!-- 100 percent White -->
+    <Color x:Key="PhoneTextBoxEditBackgroundColor">#FFFFFFFF</Color>
+
+    <!-- 47 percent percent Black -->
+    <Color x:Key="PhoneTextBoxReadOnlyColor">#77000000</Color>
+
+    <!-- 60 percent White -->
+    <Color x:Key="PhoneSubtleColor">#99FFFFFF</Color>
+
+    <!-- 100 percent White -->
+    <Color x:Key="PhoneTextBoxSelectionForegroundColor">#FFFFFFFF</Color>
+
+
+    <!-- ButtonBase colors -->
+    <Color x:Key="PhoneButtonBasePressedForegroundColor">#FFFFFFFF</Color>
+
+    <!-- Phone Accent color -->
+    <Color x:Key="PhoneAccentColor">#fda823</Color>
+    
+    <!--Windows Phone 8 Text Colors-->
+
+    <!-- 100 percent White -->
+    <Color x:Key="PhoneTextHighContrastColor">#FFFFFFFF</Color>
+
+    <!-- 60 percent White -->
+    <Color x:Key="PhoneTextMidContrastColor">#99FFFFFF</Color>
+
+    <!-- 45 percent White -->
+    <Color x:Key="PhoneTextLowContrastColor">#73FFFFFF</Color>
+
+
+    <!-- Special colors -->
+
+    <!-- 66 percent transparent -->
+    <Color x:Key="PhoneSemitransparentColor">#AA000000</Color>
+
+    <!-- System chrome color -->
+    <Color x:Key="PhoneChromeColor">#FF1F1F1F</Color>
+
+
+
+    <!-- Deprecated colors -->
+
+    <!-- 20 percent White -->
+    <Color x:Key="PhoneInactiveColor">#33FFFFFF</Color>
+
+    <!-- Inverse inactive background color -->
+    <Color x:Key="PhoneInverseInactiveColor">#FFCCCCCC</Color>
+
+    <!-- Inverse background color -->
+    <Color x:Key="PhoneInverseBackgroundColor">#FFFFFFFF</Color>
+
+    <!-- 75 percent White -->
+    <Color x:Key="PhoneBorderColor">#BFFFFFFF</Color>
+
+    <!-- Resolution-specific resources -->
+
+
+    <SolidColorBrush x:Key="PhoneForegroundBrush" Color="{StaticResource PhoneForegroundColor}"/>
+
+    <SolidColorBrush x:Key="PhoneBackgroundBrush" Color="{StaticResource PhoneBackgroundColor}"/>
+
+    <SolidColorBrush x:Key="PhoneContrastForegroundBrush" Color="{StaticResource PhoneContrastForegroundColor}"/>
+
+    <SolidColorBrush x:Key="PhoneContrastBackgroundBrush" Color="{StaticResource PhoneContrastBackgroundColor}"/>
+
+    <SolidColorBrush x:Key="PhoneTextCaretBrush" Color="{StaticResource PhoneTextCaretColor}"/>
+
+    <SolidColorBrush x:Key="PhoneTextBoxBrush" Color="{StaticResource PhoneTextBoxColor}"/>
+
+    <SolidColorBrush x:Key="PhoneTextBoxForegroundBrush" Color="{StaticResource PhoneTextBoxForegroundColor}"/>
+
+    <SolidColorBrush x:Key="PhoneTextBoxEditBackgroundBrush" Color="{StaticResource PhoneTextBoxEditBackgroundColor}"/>
+
+    <SolidColorBrush x:Key="PhoneTextBoxEditBorderBrush" Color="{StaticResource PhoneAccentColor}"/>
+
+    <SolidColorBrush x:Key="PhoneTextBoxReadOnlyBrush" Color="{StaticResource PhoneTextBoxReadOnlyColor}"/>
+
+    <SolidColorBrush x:Key="PhoneTextBoxSelectionForegroundBrush" Color="{StaticResource PhoneTextBoxSelectionForegroundColor}"/>
+
+    <SolidColorBrush x:Key="PhoneSubtleBrush" Color="{StaticResource PhoneSubtleColor}"/>
+
+    <SolidColorBrush x:Key="PhoneButtonBasePressedForegroundBrush" Color="{StaticResource PhoneButtonBasePressedForegroundColor}"/>
+
+    <SolidColorBrush x:Key="PhoneRadioCheckBoxBrush" Color="Transparent"/>
+
+    <SolidColorBrush x:Key="PhoneRadioCheckBoxBorderBrush" Color="{StaticResource PhoneForegroundColor}"/>
+
+    <SolidColorBrush x:Key="PhoneRadioCheckBoxCheckBrush" Color="{StaticResource PhoneForegroundColor}"/>
+
+    <SolidColorBrush x:Key="PhoneRadioCheckBoxPressedBrush" Color="{StaticResource PhoneAccentColor}"/>
+
+    <SolidColorBrush x:Key="PhoneDisabledBrush" Color="{StaticResource PhoneDisabledColor}"/>
+
+    <SolidColorBrush x:Key="TransparentBrush" Color="Transparent"/>
+
+    <SolidColorBrush x:Key="PhoneSemitransparentBrush" Color="{StaticResource PhoneSemitransparentColor}"/>
+
+    <SolidColorBrush x:Key="PhoneChromeBrush" Color="{StaticResource PhoneChromeColor}"/>
+
+    <SolidColorBrush x:Key="PhoneAccentBrush" Color="{StaticResource PhoneAccentColor}"/>
+
+    <SolidColorBrush x:Key="PhoneProgressBarBackgroundBrush" Color="{StaticResource PhoneProgressBarBackgroundColor}"/>
+
+
+    <!--Windows Phone 8 Text brushes-->
+
+    <SolidColorBrush x:Key="PhoneTextHighContrastBrush" Color="{StaticResource PhoneTextHighContrastColor}"/>
+
+    <SolidColorBrush x:Key="PhoneTextMidContrastBrush" Color="{StaticResource PhoneTextMidContrastColor}"/>
+
+    <SolidColorBrush x:Key="PhoneTextLowContrastBrush" Color="{StaticResource PhoneTextLowContrastColor}"/>
+
+
+    <!-- Deprecated brushes -->
+
+    <SolidColorBrush x:Key="PhoneInactiveBrush" Color="{StaticResource PhoneInactiveColor}"/>
+
+    <SolidColorBrush x:Key="PhoneInverseInactiveBrush" Color="{StaticResource PhoneInverseInactiveColor}"/>
+
+    <SolidColorBrush x:Key="PhoneInverseBackgroundBrush" Color="{StaticResource PhoneInverseBackgroundColor}"/>
+
+    <SolidColorBrush x:Key="PhoneBorderBrush" Color="{StaticResource PhoneBorderColor}"/>
+
+</ResourceDictionary>
+
+  

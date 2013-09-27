@@ -1,0 +1,79 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FBReader.App.Views.Pages.Catalogs.CatalogPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:FBReader.App.DesignViewModels.Pages"
+    xmlns:templateSelectors="clr-namespace:FBReader.App.Controls.TemplateSelectors"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:caliburn="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Core"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:cimbalino="clr-namespace:Cimbalino.Phone.Toolkit.Behaviors;assembly=Cimbalino.Phone.Toolkit"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    Style="{StaticResource DefaultApplicationPageStyle}"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance pages:CatalogPageDesignViewModel, IsDesignTimeCreatable=True}"
+    telerik:InteractionEffectManager.IsInteractionEnabled="true">
+
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="{Binding IsBusy}" 
+                                 IsVisible="{Binding IsBusy}"/>
+    </shell:SystemTray.ProgressIndicator>
+    
+    <Grid x:Name="LayoutRoot">
+
+        <i:Interaction.Behaviors>
+            <cimbalino:ApplicationBarBehavior x:Name="AppBar" Opacity="0.99"
+                              BackgroundColor="{StaticResource ApplicationBarBackgroundColor}"
+                              ForegroundColor="{StaticResource ApplicationBarForegroundColor}">
+                <cimbalino:ApplicationBarBehavior.Buttons>
+                    <cimbalino:ApplicationBarIconButton 
+                        IconUri="/Resources/Icons/search.png"
+                        Text="{Binding Source={StaticResource Localization}, Path=UI.AppBar_SearchBtn_Text}"
+                        Click="NavigateToSearch"/>
+                </cimbalino:ApplicationBarBehavior.Buttons>
+                <cimbalino:ApplicationBarBehavior.MenuItems>
+                    <cimbalino:ApplicationBarMenuItem 
+                        Text="{Binding Source={StaticResource Localization}, Path=UI.CatalogPage_Refresh_MenuItem}" 
+                        Click="AppBarRefreshMenuItemClick"/>
+                    <cimbalino:ApplicationBarMenuItem 
+                        Text="{Binding Source={StaticResource Localization}, Path=UI.CatalogPage_Logout_MenuItem}" 
+                        Click="AppBarLogoutMenuItemClick"/>
+                </cimbalino:ApplicationBarBehavior.MenuItems>
+            </cimbalino:ApplicationBarBehavior>
+       </i:Interaction.Behaviors>
+
+                <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"
+                   Margin="24,48,0,0"
+                   Style="{StaticResource TitleStyle}"
+                   Text="{Binding DisplayName}"/>
+        <telerikPrimitives:RadDataBoundListBox Grid.Row="1"
+                                               Margin="24,48,24,72"
+                                               x:Name="ItemsControl"
+                                               DataVirtualizationMode="{Binding CanLoadMore, Converter={StaticResource BooleanToDataVirtualizationModeConverter}}"
+                                               ItemsSource="{Binding FolderItems}"
+                                               ItemTemplate="{StaticResource CatalogDataTemplate}"
+                                               EmptyContentDisplayMode="DataSourceEmpty"
+                                               EmptyContent=""
+                                               IsAsyncBalanceEnabled="True"
+                                               AsyncBalanceMode="FillViewportFirst"
+                                               caliburn:Message.Attach="[Event DataRequested] = [Action LoadNextPage()]"
+                                               ItemTap="ItemsControl_OnItemTap"
+                                               SelectionChanging="ItemsControl_OnSelectionChanging">
+<!--            <telerikPrimitives:RadDataBoundListBox.ItemAddedAnimation>
+                <telerik:RadFadeAnimation EndOpacity="1" StartOpacity="0" InitialDelay="0:0:0.3"/>
+            </telerikPrimitives:RadDataBoundListBox.ItemAddedAnimation>-->
+        </telerikPrimitives:RadDataBoundListBox>
+    </Grid>
+</phone:PhoneApplicationPage>

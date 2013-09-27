@@ -1,0 +1,713 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{23677B10-9628-494A-9678-85C08FDCE981}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FBReader.App</RootNamespace>
+    <AssemblyName>FBReader.App</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>en;ru</SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>FBReader_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>FBReader.App.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Reading|AnyCPU'">
+    <OutputPath>bin\Debug Reading\</OutputPath>
+    <DefineConstants>SILVERLIGHT;WINDOWS_PHONE;</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Reading|x86'">
+    <OutputPath>bin\x86\Debug Reading\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Reading|ARM'">
+    <OutputPath>bin\ARM\Debug Reading\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Reading|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_Reading\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;READING</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Reading|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug_Reading\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Reading|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug_Reading\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\GlobalAssemblyInfo.cs">
+      <Link>Properties/GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="AppBootstraper.cs" />
+    <Compile Include="Behaviours\PasswordBoxUpdateBindingBehaviour.cs" />
+    <Compile Include="Behaviours\TextBoxUpdateBindingBehaviour.cs" />
+    <Compile Include="BusyOverlayManager.cs" />
+    <Compile Include="Controls\ApplicationBar\ApplicationBarMinimizedState.cs" />
+    <Compile Include="Controls\ApplicationBar\ApplicationBarState.cs" />
+    <Compile Include="Controls\ApplicationBar\FBReaderApplicationBarIconControl.cs" />
+    <Compile Include="Controls\ApplicationBar\FBReaderApplicationBarItemBase.cs" />
+    <Compile Include="Controls\ApplicationBar\FBReaderApplicationBarItemCollection.cs" />
+    <Compile Include="Controls\ApplicationBar\FBReaderApplicationBarMenuItem.cs" />
+    <Compile Include="Controls\ApplicationBar\FBReaderApplicationBar.xaml.cs">
+      <DependentUpon>FBReaderApplicationBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ApplicationBar\FBReaderApplicationBarIconButton.cs" />
+    <Compile Include="Controls\ApplicationBar\FBReaderApplicationBarMenuItemControl.cs" />
+    <Compile Include="Controls\ApplicationBar\FBSlider.cs" />
+    <Compile Include="Controls\BusyOverlay.cs" />
+    <Compile Include="Controls\Manipulations\ContinuousDragPageManipulation.cs" />
+    <Compile Include="Controls\Manipulations\DragManipulationBase.cs" />
+    <Compile Include="Controls\Manipulations\FlipDirection.cs" />
+    <Compile Include="Controls\Manipulations\ManipulatorFactory.cs" />
+    <Compile Include="Controls\Manipulations\PageManipulatorBase.cs" />
+    <Compile Include="Controls\Manipulations\OverlappingDragPageManipulation.cs" />
+    <Compile Include="Controls\Manipulations\StaticDragPageManipulation.cs" />
+    <Compile Include="Controls\PlaceholderImage.cs" />
+    <Compile Include="Controls\SelectionActionsControl.xaml.cs">
+      <DependentUpon>SelectionActionsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SelectionItemControl.cs" />
+    <Compile Include="Controls\TemplateSelectors\CatalogItemDataTemplateSelector.cs" />
+    <Compile Include="Controls\TemplateSelectors\DataTemplateSelector.cs" />
+    <Compile Include="Controls\ThreePagePanel.xaml.cs">
+      <DependentUpon>ThreePagePanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TileManager.cs" />
+    <Compile Include="Controls\Toast\DialogService.cs" />
+    <Compile Include="Controls\Toast\PopUp.cs" />
+    <Compile Include="Controls\Toast\PopUpEventArgs.cs" />
+    <Compile Include="Controls\Toast\PopUpResult.cs" />
+    <Compile Include="Controls\Toast\PreventScrollBinding.cs" />
+    <Compile Include="Controls\Toast\TemplatedVisualTreeExtensions.cs" />
+    <Compile Include="Controls\Toast\ToastPromt.cs" />
+    <Compile Include="Controls\Toast\VisualTreeExtensions.cs" />
+    <Compile Include="Controls\ToggleSwitch.cs" />
+    <Compile Include="Controls\TranslationControl.xaml.cs">
+      <DependentUpon>TranslationControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BookImagePathToSourceConverter.cs" />
+    <Compile Include="Converters\BookInfoPageImageToSourceConverter.cs" />
+    <Compile Include="Converters\CatalogBookItemModelPriceToVisibilityConverter.cs" />
+    <Compile Include="Converters\CatalogBookItemModelToPriceConverter.cs" />
+    <Compile Include="Converters\ChapterMarginConverter.cs" />
+    <Compile Include="Converters\DownloadStatusToStringConverter.cs" />
+    <Compile Include="Converters\GenericConverter.cs" />
+    <Compile Include="Converters\ImageNameToUriConverter.cs" />
+    <Compile Include="Converters\BooleanToDataVirtualizationModeConverter.cs" />
+    <Compile Include="Converters\IsFavouriteBookToIconConverter.cs" />
+    <Compile Include="Converters\IsFavouriteBookToLocalizedAppBarTextConverter.cs" />
+    <Compile Include="Converters\NullToVisibilityConverter.cs" />
+    <Compile Include="Converters\RadioButtonToEnumConverter.cs" />
+    <Compile Include="Converters\StringCaseConverter.cs" />
+    <Compile Include="DesignViewModels\MainHub\CatalogsDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\MainHub\UserLibraryDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\Pages\CatalogPageDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\Pages\MainPageDesignViewModel.cs" />
+    <Compile Include="DesignViewModels\Pages\UserLibraryPageDesignViewModel.cs" />
+    <Compile Include="Interaction\LinqToVisualTree.cs" />
+    <Compile Include="Interaction\ManipulationListener.cs" />
+    <Compile Include="Interaction\ManipulationService.cs" />
+    <Compile Include="Interaction\PointManipulationEventArgs.cs" />
+    <Compile Include="Interaction\TaskCompletionNotifier.cs" />
+    <Compile Include="NotificationsService.cs" />
+    <Compile Include="Resources\TelerikLocalization\ResourceLoader.cs" />
+    <Compile Include="Triggers\EnterKeyPressedTrigger.cs" />
+    <Compile Include="Triggers\TextBoxEnterPressedTrigger.cs" />
+    <Compile Include="Utils\MetroGridHelper.cs" />
+    <Compile Include="Utils\MathHelper.cs" />
+    <Compile Include="Views\Controls\HighlightedTextBlockControl.xaml.cs">
+      <DependentUpon>HighlightedTextBlockControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\BookTile.xaml.cs">
+      <DependentUpon>BookTile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Catalogs\AllCatalogsSearchPage.xaml.cs">
+      <DependentUpon>AllCatalogsSearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\BookInfoPage.xaml.cs">
+      <DependentUpon>BookInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\ColorSelectorControl.xaml.cs">
+      <DependentUpon>ColorSelectorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\MarginGridControl.xaml.cs">
+      <DependentUpon>MarginGridControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\SearchResultItemControl.xaml.cs">
+      <DependentUpon>SearchResultItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Catalogs\AddCatalogPage.xaml.cs">
+      <DependentUpon>AddCatalogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Bookmarks\BookmarkSearchPage.xaml.cs">
+      <DependentUpon>BookmarkSearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Catalogs\AuthorizationPage.xaml.cs">
+      <DependentUpon>AuthorizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Catalogs\CatalogPage.xaml.cs">
+      <DependentUpon>CatalogPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Catalogs\CatalogSearchPage.xaml.cs">
+      <DependentUpon>CatalogSearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ContentsPage.xaml.cs">
+      <DependentUpon>ContentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Bookmarks\AllBooksBookmarksView.xaml.cs">
+      <DependentUpon>AllBooksBookmarksView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Bookmarks\BookmarksPivot.xaml.cs">
+      <DependentUpon>BookmarksPivot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Bookmarks\ThisBookBookmarksView.xaml.cs">
+      <DependentUpon>ThisBookBookmarksView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\DownloadListPage.xaml.cs">
+      <DependentUpon>DownloadListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\EditBookPage.xaml.cs">
+      <DependentUpon>EditBookPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\MainHub\CatalogsView.xaml.cs">
+      <DependentUpon>CatalogsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\MainHub\UserLibraryView.xaml.cs">
+      <DependentUpon>UserLibraryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Pages\ReadPage.xaml.cs">
+      <DependentUpon>ReadPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SearchInBookPage.xaml.cs">
+      <DependentUpon>SearchInBookPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\SearchPage.xaml.cs">
+      <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Settings\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Settings\HyphenationSettingPage.xaml.cs">
+      <DependentUpon>HyphenationSettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Settings\CSSSettingPage.xaml.cs">
+      <DependentUpon>CSSSettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Settings\FlippingSettingPage.xaml.cs">
+      <DependentUpon>FlippingSettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Settings\FontSettingPage.xaml.cs">
+      <DependentUpon>FontSettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Settings\FormattingView.xaml.cs">
+      <DependentUpon>FormattingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Settings\GeneralView.xaml.cs">
+      <DependentUpon>GeneralView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Settings\LockScreenSettingPage.xaml.cs">
+      <DependentUpon>LockScreenSettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Settings\MarginsSettingPage.xaml.cs">
+      <DependentUpon>MarginsSettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Settings\MenuSettingPage.xaml.cs">
+      <DependentUpon>MenuSettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Settings\OrientationSettingPage.xaml.cs">
+      <DependentUpon>OrientationSettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Settings\SettingsPivot.xaml.cs">
+      <DependentUpon>SettingsPivot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\TitlePanelControl.xaml.cs">
+      <DependentUpon>TitlePanelControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Settings\ThemeSettingPage.xaml.cs">
+      <DependentUpon>ThemeSettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\UserLibraryPage.xaml.cs">
+      <DependentUpon>UserLibraryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\WebBrowserPage.xaml.cs">
+      <DependentUpon>WebBrowserPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="Controls\ApplicationBar\FBReaderApplicationBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SelectionActionsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ThreePagePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TranslationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\DataTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\FBReaderThemeResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Controls\HighlightedTextBlockControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\BookTile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Catalogs\AllCatalogsSearchPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\BookInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\ColorSelectorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\MarginGridControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\SearchResultItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Catalogs\AddCatalogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Bookmarks\BookmarkSearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Catalogs\AuthorizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Catalogs\CatalogPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Catalogs\CatalogSearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ContentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Bookmarks\AllBooksBookmarksView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Bookmarks\BookmarksPivot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Bookmarks\ThisBookBookmarksView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\DownloadListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\EditBookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\MainHub\CatalogsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\MainHub\UserLibraryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ReadPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\SearchInBookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\SearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Settings\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Settings\HyphenationSettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Settings\CSSSettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Settings\FlippingSettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Settings\FontSettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Settings\FormattingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Settings\GeneralView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Settings\LockScreenSettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Settings\MarginsSettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Settings\MenuSettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Settings\OrientationSettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Settings\SettingsPivot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\TitlePanelControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Settings\ThemeSettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\UserLibraryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\WebBrowserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\ApplicationIcon.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png" />
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png" />
+    <Content Include="Assets\Tiles\IconicTileMediumLarge.png" />
+    <Content Include="Assets\Tiles\IconicTileSmall.png" />
+    <Content Include="Resources\Icons\add.png" />
+    <Content Include="Resources\Icons\appbar_add.png" />
+    <Content Include="Resources\Icons\appbar_edit.png" />
+    <Content Include="Resources\Icons\appbar_email.png" />
+    <Content Include="Resources\Icons\appbar_favorites.png" />
+    <Content Include="Resources\Icons\appbar_favorites_add.png" />
+    <Content Include="Resources\Icons\appbar_favorites_del.png" />
+    <Content Include="Resources\Icons\appbar_rate.png" />
+    <Content Include="Resources\Icons\appbar_read.png" />
+    <Content Include="Resources\Icons\appbar_search.png" />
+    <Content Include="Resources\Icons\appbar_share.png" />
+    <Content Include="Resources\Icons\appbar_sort.png" />
+    <Content Include="Resources\Icons\appbar_submit.png" />
+    <Content Include="Resources\Icons\back.png" />
+    <Content Include="Resources\Icons\basecircle.png" />
+    <Content Include="Resources\Icons\bookmark.png" />
+    <Content Include="Resources\Icons\buy.png" />
+    <Content Include="Resources\Icons\cancel.png" />
+    <Content Include="Resources\Icons\delete.png" />
+    <Content Include="Resources\Icons\download.png" />
+    <Content Include="Resources\Icons\empty_catalog.png" />
+    <Content Include="Resources\Icons\empty_medium.png" />
+    <Content Include="Resources\Icons\empty_small.png" />
+    <Content Include="Resources\Icons\flibusta_icon.jpg" />
+    <Content Include="Resources\Icons\librusec_icon.jpg" />
+    <Content Include="Resources\Icons\litres_icon.jpg" />
+    <Content Include="Resources\Icons\Manybooks.png" />
+    <Content Include="Resources\Icons\marker_paid.png" />
+    <Content Include="Resources\Icons\prochtenie_catalog.png" />
+    <Content Include="Resources\Icons\sd_card.png" />
+    <Content Include="Resources\Icons\skydrive.png" />
+    <Content Include="Resources\Icons\tile.png" />
+    <Content Include="Resources\Icons\fbr_icon_200x200.png" />
+    <Content Include="Resources\Icons\fbr_icon_300x300.png" />
+    <Content Include="Resources\Icons\search.png" />
+    <Content Include="Resources\Icons\toc.png" />
+    <Content Include="Resources\Icons\toFavorites.png" />
+    <Content Include="Resources\Images\empty_max.png" />
+    <Content Include="Resources\Images\WVGA\AppLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\WVGA\DesignBookCover.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\WVGA\DevBig.png" />
+    <Content Include="Resources\Images\WVGA\DevLittle.png" />
+    <Content Include="Resources\Images\WVGA\ic_select.png" />
+    <Content Include="Resources\Images\WVGA\logo_cactussoft.png" />
+    <Content Include="Resources\Images\WVGA\MainPagePanoramaBackround.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\WVGA\TextSelect.png" />
+    <Content Include="Resources\Images\WVGA\txt_bookmark.png" />
+    <Content Include="Resources\Images\WVGA\txt_copy.png" />
+    <Content Include="Resources\Images\WVGA\txt_share.png" />
+    <Content Include="Resources\Images\WVGA\txt_translate.png" />
+    <Content Include="Resources\Images\WXGA\AppLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\WXGA\DesignBookCover.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\WXGA\DevBig.png" />
+    <Content Include="Resources\Images\WXGA\DevLittle.png" />
+    <Content Include="Resources\Images\WXGA\ic_select.png" />
+    <Content Include="Resources\Images\WXGA\logo_cactussoft.png" />
+    <Content Include="Resources\Images\WXGA\MainPagePanoramaBackround.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\WXGA\TextSelect.png" />
+    <Content Include="Resources\Images\WXGA\txt_bookmark.png" />
+    <Content Include="Resources\Images\WXGA\txt_copy.png" />
+    <Content Include="Resources\Images\WXGA\txt_share.png" />
+    <Content Include="Resources\Images\WXGA\txt_translate.png" />
+    <Content Include="SplashScreenImage.Screen-720p.jpg" />
+    <Content Include="SplashScreenImage.Screen-WVGA.jpg" />
+    <Content Include="SplashScreenImage.Screen-WXGA.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Caliburn\Caliburn.Micro.WP8.Extensions\Caliburn.Micro.WP8.Extensions.csproj">
+      <Project>{749ADF14-7D11-4380-AB64-CEB61DFF2A73}</Project>
+      <Name>Caliburn.Micro.WP8.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Caliburn\Caliburn.Micro.WP8\Caliburn.Micro.WP8.csproj">
+      <Project>{50DAA3F0-3BAD-433A-B4B2-4A38DEF9DFAF}</Project>
+      <Name>Caliburn.Micro.WP8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.AppServices\FBReader.AppServices.csproj">
+      <Project>{434A1A03-D0C9-4080-B42F-958B41F141E7}</Project>
+      <Name>FBReader.AppServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.Common\FBReader.Common.csproj">
+      <Project>{2893A37C-A92E-40C0-9176-0D91E2032A69}</Project>
+      <Name>FBReader.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.DataModel\FBReader.DataModel.csproj">
+      <Project>{A6589AF0-743F-47EC-B3F9-DF082DAA8088}</Project>
+      <Name>FBReader.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.Localization\FBReader.Localization.csproj">
+      <Project>{0CFC7D30-1590-4D89-9753-6F9959A87A74}</Project>
+      <Name>FBReader.Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.PhoneServices\FBReader.PhoneServices.csproj">
+      <Project>{A26783ED-52EE-458C-A237-EAA0378432C2}</Project>
+      <Name>FBReader.PhoneServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.Render\FBReader.Render.csproj">
+      <Project>{047501BE-F412-45E7-9A18-9BFBD615DF23}</Project>
+      <Name>FBReader.Render</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.Settings\FBReader.Settings.csproj">
+      <Project>{D7F75CE3-22AD-4272-BD15-100E0BDC8299}</Project>
+      <Name>FBReader.Settings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.Tokenizer\FBReader.Tokenizer.csproj">
+      <Project>{B478202A-2653-4B13-B23B-391B5889EA97}</Project>
+      <Name>FBReader.Tokenizer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.WebClient\FBReader.WebClient.csproj">
+      <Project>{7AC3A06F-F2F3-4196-96D2-093ECCB28A39}</Project>
+      <Name>FBReader.WebClient</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="Cimbalino.Phone.Toolkit">
+      <HintPath>..\packages\Cimbalino.Phone.Toolkit.3.1.0\lib\wp8\Cimbalino.Phone.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Cimbalino.Phone.Toolkit.Background">
+      <HintPath>..\packages\Cimbalino.Phone.Toolkit.Background.3.1.0\lib\wp8\Cimbalino.Phone.Toolkit.Background.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="NavigationCoercion">
+      <HintPath>..\libs\NavigationCoercion.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Data">
+      <HintPath>..\libs\Telerik\Telerik.Windows.Controls.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input">
+      <HintPath>..\libs\Telerik\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Primitives">
+      <HintPath>..\libs\Telerik\Telerik.Windows.Controls.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Core">
+      <HintPath>..\libs\Telerik\Telerik.Windows.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+</Project>

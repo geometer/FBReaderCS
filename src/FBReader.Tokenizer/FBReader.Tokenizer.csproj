@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B478202A-2653-4B13-B23B-391B5889EA97}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FBReader.Tokenizer</RootNamespace>
+    <AssemblyName>FBReader.Tokenizer</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Reading|AnyCPU'">
+    <OutputPath>bin\Debug Reading\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Reading|x86'">
+    <OutputPath>bin\x86\Debug Reading\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Reading|ARM'">
+    <OutputPath>bin\ARM\Debug Reading\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Reading|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_Reading\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Reading|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug_Reading\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Reading|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug_Reading\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Data\BookChapter.cs" />
+    <Compile Include="Data\BookImage.cs" />
+    <Compile Include="Parsers\Epub\EpubCoverHelper.cs" />
+    <Compile Include="Parsers\Fb2\Fb2SummaryParser.cs" />
+    <Compile Include="Parsers\Fb2\Fb2TokenParser.cs" />
+    <Compile Include="Parsers\Html\HtmlSummaryParser.cs" />
+    <Compile Include="Parsers\Html\HtmlTokenParser.cs" />
+    <Compile Include="Parsers\TokenParserBase.cs" />
+    <Compile Include="Styling\CssRule.cs" />
+    <Compile Include="Styling\TextVisualPropertiesExtensions.cs" />
+    <Compile Include="Styling\CSS.cs" />
+    <Compile Include="Extensions\ImageExtensions.cs" />
+    <Compile Include="Fonts\FontHelper.cs" />
+    <Compile Include="Parsers\BookSummaryParserBase.cs" />
+    <Compile Include="Parsers\BookBuilder.cs" />
+    <Compile Include="Parsers\BookSummary.cs" />
+    <Compile Include="Parsers\Epub\EpubPath.cs" />
+    <Compile Include="Parsers\Epub\EpubSummaryParser.cs" />
+    <Compile Include="Parsers\Epub\EpubSpineItem.cs" />
+    <Compile Include="Parsers\Epub\EpubTokenParser.cs" />
+    <Compile Include="Parsers\IBookBuilder.cs" />
+    <Compile Include="Fonts\IFontHelper.cs" />
+    <Compile Include="Parsers\IBookSummaryParser.cs" />
+    <Compile Include="Parsers\ITokenParser.cs" />
+    <Compile Include="Parsers\LineBuilder.cs" />
+    <Compile Include="Parsers\PageBuilder.cs" />
+    <Compile Include="Parsers\BookTokenIterator.cs" />
+    <Compile Include="Parsers\Txt\TxtSummaryParser.cs" />
+    <Compile Include="Parsers\Txt\TxtTokenParser.cs" />
+    <Compile Include="TextStructure\EOLElement.cs" />
+    <Compile Include="TextStructure\ImageParagraphInfo.cs" />
+    <Compile Include="TextStructure\TextElementBase.cs" />
+    <Compile Include="TextStructure\EOPElement.cs" />
+    <Compile Include="TextStructure\ImageElement.cs" />
+    <Compile Include="TextStructure\TextElement.cs" />
+    <Compile Include="TextStructure\PageInfo.cs" />
+    <Compile Include="TextStructure\ParagraphInfo.cs" />
+    <Compile Include="Fonts\FontSizeType.cs" />
+    <Compile Include="Styling\TextVisualProperties.cs" />
+    <Compile Include="Tokens\TokenBase.cs" />
+    <Compile Include="Tokens\TokenBlockBase.cs" />
+    <Compile Include="Tokens\ImageTokenBlock.cs" />
+    <Compile Include="Tokens\TagCloseToken.cs" />
+    <Compile Include="Tokens\PictureToken.cs" />
+    <Compile Include="Tokens\TagOpenToken.cs" />
+    <Compile Include="Tokens\PageBreakBlock.cs" />
+    <Compile Include="Tokens\NewPageToken.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tokens\SeparatorTokenBlock.cs" />
+    <Compile Include="Tokens\TokenType.cs" />
+    <Compile Include="Tokens\WhitespaceToken.cs" />
+    <Compile Include="Tokens\TextToken.cs" />
+    <Compile Include="Tokens\TextTokenBlock.cs" />
+    <Compile Include="Tokens\TokenSerializer.cs" />
+    <Compile Include="Tokens\TokenIndex.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ExCss.WP">
+      <HintPath>..\libs\ExCss\ExCss.WP.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\sl4-windowsphone71\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpZipLib.WindowsPhone7">
+      <HintPath>..\packages\SharpZipLib-WP7.0.86.0.518\lib\sl4-windowsphone71\SharpZipLib.WindowsPhone7.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath">
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Xml.XPath.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FBReader.Common\FBReader.Common.csproj">
+      <Project>{2893A37C-A92E-40C0-9176-0D91E2032A69}</Project>
+      <Name>FBReader.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.DataModel\FBReader.DataModel.csproj">
+      <Project>{A6589AF0-743F-47EC-B3F9-DF082DAA8088}</Project>
+      <Name>FBReader.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.Hyphen\FBReader.Hyphen.csproj">
+      <Project>{96C82E03-B853-4C09-82E3-854F1E193258}</Project>
+      <Name>FBReader.Hyphen</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.IO\FBReader.FileStorage.csproj">
+      <Project>{5EA238D0-CFF7-43AB-B7FC-47E8A4AD6ECD}</Project>
+      <Name>FBReader.FileStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.Settings\FBReader.Settings.csproj">
+      <Project>{D7F75CE3-22AD-4272-BD15-100E0BDC8299}</Project>
+      <Name>FBReader.Settings</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <ProjectExtensions />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

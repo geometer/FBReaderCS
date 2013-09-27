@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="FBReader.App.Views.Pages.Settings.GeneralView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerikInput="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Core"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <ItemsControl ItemTemplate="{StaticResource SettingItem}" ItemsSource="{Binding Items}">
+
+        </ItemsControl>
+
+        <telerikInput:RadListPicker 
+            Height="0"
+            Width="0"
+            InlineModeThreshold="0"
+            PopupHeader="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_UILanguage, Converter={StaticResource StringCaseConverter}, ConverterParameter=U}"           
+            ItemsSource="{Binding UILanguages}"
+            SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}"
+            IsExpanded="{Binding SelectUILanguage, Mode=TwoWay}">
+            <telerikInput:RadListPicker.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding NativeName, Converter={StaticResource StringCaseConverter}, ConverterParameter=u}" />
+                </DataTemplate>
+            </telerikInput:RadListPicker.ItemTemplate>
+        </telerikInput:RadListPicker>
+
+        <telerikInput:RadListPicker 
+            Height="0"
+            Width="0"
+            InlineModeThreshold="0"
+            PopupHeader="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_TranslateLanguage, Converter={StaticResource StringCaseConverter}, ConverterParameter=U}"           
+            ItemsSource="{Binding TranslateLanguages}"
+            SelectedItem="{Binding SelectedTranslateLanguage, Mode=TwoWay}"
+            IsExpanded="{Binding SelectTranslateLanguage, Mode=TwoWay}">
+            <telerikInput:RadListPicker.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding NativeName, Converter={StaticResource StringCaseConverter}, ConverterParameter=u}" />
+                </DataTemplate>
+            </telerikInput:RadListPicker.ItemTemplate>
+        </telerikInput:RadListPicker>
+
+    </Grid>
+</UserControl>

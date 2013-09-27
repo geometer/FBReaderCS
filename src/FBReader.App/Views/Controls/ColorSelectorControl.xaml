@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="FBReader.App.Views.Controls.ColorSelectorControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+             xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Core"
+             mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+    <Grid>
+        <telerikPrimitives:RadWindow x:Name="PopupWindow" >
+            <Grid x:Name="Root" Background="Transparent" >
+                <Grid Background="#D8000000" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+        
+                    <TextBlock Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_Bookmark_SelectColor}" Style="{StaticResource TitleStyle}" Margin="12 24 12 18" />
+
+                    <ItemsControl x:Name="ColorsPanel"
+                                Grid.Row="1" 
+                                Margin="6 0 6 6">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <telerikPrimitives:RadWrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Rectangle 
+                                    Width="89" 
+                                    Height="89" 
+                                    Fill="{Binding}" 
+                                    Margin="6" 
+                                    telerik:InteractionEffectManager.ApplyInteractionExplicitly="True" 
+                                    Tap="UIElement_OnTap"/>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+            </Grid>
+        </telerikPrimitives:RadWindow>
+    </Grid>
+</UserControl>

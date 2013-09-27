@@ -1,0 +1,132 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FBReader.App.Views.Pages.UserLibraryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:FBReader.App.DesignViewModels.Pages"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:caliburn="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:controls="clr-namespace:FBReader.App.Controls"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    Style="{StaticResource DefaultApplicationPageStyle}"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance pages:UserLibraryPageDesignViewModel, IsDesignTimeCreatable=True}">
+
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="{Binding IsBusy}" 
+                                 IsVisible="{Binding IsBusy}"/>
+    </shell:SystemTray.ProgressIndicator>
+    
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="SortModeButtonItemTemplate">
+            <Grid DataContext="{Binding}">
+                <TextBlock Text="{Binding Path=Value}" 
+                           FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                           FontFamily="Segoe WP SemiLight"
+                           Margin="24,0,0,40"
+                           Name="itemTextBlock">
+                    <TextBlock.Projection>
+                        <PlaneProjection RotationX="0"/>
+                    </TextBlock.Projection>
+                    <TextBlock.Triggers>
+                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation From="90" To="0" 
+                                                     Duration="0:0:0.3"
+                                                     Storyboard.TargetName="itemTextBlock"
+                                                     Storyboard.TargetProperty="(FrameworkElement.Projection).(PlaneProjection.RotationX)"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </TextBlock.Triggers>
+                </TextBlock>
+            </Grid>
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
+    
+    <Grid x:Name="LayoutRoot" >
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"
+                   Margin="24,48,0,0"
+                   Style="{StaticResource TitleStyle}"
+                   Text="{Binding PageTitle}"/>
+
+        <telerikPrimitives:RadDataBoundListBox Grid.Row="1"
+                                               Margin="24,48,24,12"
+                                               ItemsSource="{Binding Books}"
+                                               ItemTemplate="{StaticResource LocalBookDataTemplate}"
+                                               EmptyContent="{Binding EmptyContent}"
+                                               EmptyContentDisplayMode="DataSourceEmpty">
+            <telerikPrimitives:RadDataBoundListBox.EmptyContentTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                </DataTemplate>
+            </telerikPrimitives:RadDataBoundListBox.EmptyContentTemplate>
+            <telerikPrimitives:RadDataBoundListBox.ListFooterTemplate>
+                <DataTemplate>
+                    <ContentControl Height="60"/>
+                </DataTemplate>
+            </telerikPrimitives:RadDataBoundListBox.ListFooterTemplate>
+            <telerikPrimitives:RadContextMenu.ContextMenu>
+                <telerikPrimitives:RadContextMenu Opening="RadContextMenu_OnOpening">
+                    <telerikPrimitives:RadContextMenuItem x:Name="PinMenuItem"
+                            Content="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_Pin}"
+                            Tap="PinOnTap"/>
+                    <telerikPrimitives:RadContextMenuItem x:Name="DeleteMenuItem"
+                            Content="{Binding Source={StaticResource Localization}, Path=UI.Delete}" Tap="DeleteOnTap"/>
+                    <telerikPrimitives:RadContextMenuItem x:Name="RemoveFromFavouritesMenuItem"
+                            Content="{Binding Source={StaticResource Localization}, Path=UI.UserLibraryPage_RemoveFromFavourites}" Tap="RemoveFromBookmarksOnTap"/>
+                </telerikPrimitives:RadContextMenu>
+            </telerikPrimitives:RadContextMenu.ContextMenu>
+        </telerikPrimitives:RadDataBoundListBox>
+        
+        <!-- Sorting -->
+        <Canvas Grid.Row="0"
+                Grid.RowSpan="2"
+                Name="BlockCanvas"
+                Background="Black"
+                Visibility="{Binding IsOpenSortModes, Mode=TwoWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+        <Popup Name="SortModePopup"
+               IsOpen="{Binding IsOpenSortModes}">
+            <StackPanel HorizontalAlignment="Stretch" 
+                        Name="OrderStackPanel">
+                <TextBlock Text="{Binding UI.UserLibraryPage_Sorting, Source={StaticResource Localization}}"
+                           FontSize="26"
+                           Margin="24,48,12,48"/>
+                <ListBox ItemsSource="{Binding SortModes}"
+                         SelectedItem="{Binding SelectedSortMode, Mode=TwoWay}"
+                         ItemTemplate="{StaticResource SortModeButtonItemTemplate}"
+                         ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                <Border Margin="0,0,0,8"/>
+            </StackPanel>
+        </Popup>
+    </Grid>
+    
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Opacity="0.99"
+                              IsVisible="False"
+                              BackgroundColor="{StaticResource ApplicationBarBackgroundColor}"
+                              ForegroundColor="{StaticResource ApplicationBarForegroundColor}">
+            <shell:ApplicationBar.Buttons>
+                <shell:ApplicationBarIconButton IconUri="/Resources/Icons/search.png"
+                                                Text="search"
+                                                Click="SearchButtonClick"/>
+                <shell:ApplicationBarIconButton IconUri="/Resources/Icons/appbar_sort.png" 
+                                                Text="sort"
+                                                Click="SortButtonClick"/>
+            </shell:ApplicationBar.Buttons>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="FBReader.App.Views.Controls.BookTile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    Height="173"
+    Width="173"
+             x:Name="BookTileRoot">
+
+    <Grid Background="#E7D8A5">
+        <Image x:Name="BookCover" />
+        <Image Source="/Resources/Icons/bookmark.png" 
+               Stretch="Uniform" 
+               VerticalAlignment="Top"
+               HorizontalAlignment="Left"
+               Margin="12 0 0 0"
+               Height="53"
+               Width="26"
+               />
+        <TextBlock x:Name="BookNameTextBlock"
+                   Foreground="Black"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Left"
+                   TextWrapping="Wrap"               
+                   Margin="12 0 0 12"/>
+    </Grid>
+</UserControl>

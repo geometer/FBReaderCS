@@ -1,0 +1,240 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FBReader.App.Views.Pages.BookInfoPage"
+    x:Name="BookPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:FBReader.App.Views.Controls"
+    xmlns:pages="clr-namespace:FBReader.AppServices.ViewModels.Pages;assembly=FBReader.AppServices"
+    xmlns:telerikInput="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    Style="{StaticResource DefaultApplicationPageStyle}"
+    d:DataContext="{d:DesignInstance Type=pages:BookInfoPageViewModel}">
+
+    <phone:PhoneApplicationPage.Resources>
+        <Style x:Key="DescriptionNameStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource BookInfoDescriptionNameBrush}" />
+        </Style>
+
+        <shell:ApplicationBar x:Key="FirstAppBar"
+                              BackgroundColor="{StaticResource ApplicationBarBackgroundColor}"
+                              ForegroundColor="{StaticResource ApplicationBarForegroundColor}"
+                              Opacity="0.99">
+            <shell:ApplicationBar.Buttons>
+                <shell:ApplicationBarIconButton IconUri="/Resources/Icons/appbar_read.png" 
+                                                Text="читать"
+                                            Click="Read"/>
+                <shell:ApplicationBarIconButton IconUri="/Resources/Icons/appbar_edit.png" 
+                                                Text="переименовать"
+                                            Click="Edit" />
+                <shell:ApplicationBarIconButton IconUri="/Resources/Icons/appbar_favorites_add.png" 
+                                                Text="добавить в избранное"
+                                            Click="AddRemoveToFavourites" />
+                <shell:ApplicationBarIconButton IconUri="/Resources/Icons/appbar_share.png" 
+                                                Text="поделиться"
+                                            Click="Share" />
+            </shell:ApplicationBar.Buttons>
+        </shell:ApplicationBar>
+        <shell:ApplicationBar x:Key="SecondAppBar"
+                              BackgroundColor="{StaticResource ApplicationBarBackgroundColor}"
+                              ForegroundColor="{StaticResource ApplicationBarForegroundColor}"
+                              Opacity="0.99">
+            <shell:ApplicationBar.Buttons>
+                <!--<shell:ApplicationBarIconButton IconUri="/Resources/Icons/download.png"
+                                                Text="скачать"
+                                            Click="Download" />-->
+                <shell:ApplicationBarIconButton IconUri="/Resources/Icons/buy.png"
+                                                Text="купить"
+                                            Click="Buy"/>
+            </shell:ApplicationBar.Buttons>
+        </shell:ApplicationBar>
+        <shell:ApplicationBar x:Key="ThirdAppBar"
+                              BackgroundColor="{StaticResource ApplicationBarBackgroundColor}"
+                              ForegroundColor="{StaticResource ApplicationBarForegroundColor}"
+                              Opacity="0.99">
+            <shell:ApplicationBar.Buttons>
+                <shell:ApplicationBarIconButton IconUri="/Resources/Icons/buy.png" 
+                                                Text="купить"
+                                            Click="Buy"/>
+                <shell:ApplicationBarIconButton IconUri="/Resources/Icons/appbar_read.png"
+                                                Text="читать фрагмент"
+                                            Click="Read"/>
+                <shell:ApplicationBarIconButton IconUri="/Resources/Icons/delete.png"
+                                                Text="удалить фрагмент"
+                                            Click="DeleteTrial"/>
+            </shell:ApplicationBar.Buttons>
+        </shell:ApplicationBar>
+
+    </phone:PhoneApplicationPage.Resources>
+    
+    <Grid x:Name="LayoutRoot" 
+          Background="{StaticResource PhoneBackgroundBrush}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <controls:TitlePanelControl Margin="0 32 0 0" Title="{Binding Source={StaticResource Localization}, Path=UI.BookInfoPage_Title}" />
+            
+            <ScrollViewer Grid.Row="1" Margin="24,0,24,0">
+                <StackPanel Margin="0 0 0 72">
+                    <Grid x:Name="BookCoverGrid"
+                        Margin="0 0 0 48"
+                          DataContext="{Binding Converter={StaticResource BookInfoPageImageToSourceConverter}}">
+                        <Grid Visibility="{Binding Result, Converter={StaticResource InvertedNullToVisibilityConverter}}">
+                            <Image Width="432" 
+                                Source="/Resources/Images/empty_max.png" 
+                                Stretch="Uniform"/>
+                            <Grid Margin="32">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0"
+                                           DataContext="{Binding ElementName=BookPage, Path=DataContext}"
+                                   Text="{Binding Title, Converter={StaticResource StringToUpperCaseConverter}}"
+                                   FontSize="32"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Bottom"
+                                   Foreground="White" 
+                                   FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                                   Visibility="{Binding Title, Converter={StaticResource StringToVisibilityConverter}}"/>
+                            
+                                <Line 
+                                    Grid.Row="2"
+                                    X1="0" X2="250" Y1="0" Y2="0" Stroke="#4f5557"
+                                    HorizontalAlignment="Center"/>
+                            
+                                <TextBlock Grid.Row="4"
+                                           DataContext="{Binding ElementName=BookPage, Path=DataContext}"
+                                   Text="{Binding Author}"
+                                   FontSize="23"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Top"
+                                   Foreground="White" 
+                                   FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                   Visibility="{Binding Author, Converter={StaticResource StringToVisibilityConverter}}"/>
+                            </Grid>
+                        </Grid>
+                        <Image 
+                            Width="432" 
+                            Source="{Binding Result}"
+                            Stretch="Uniform"/>
+                    </Grid>
+                    <Grid Margin="0 0 0 12">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="32" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" 
+                                   Text="{Binding Source={StaticResource Localization}, Path=UI.BookInfo_Author}" 
+                                   Style="{StaticResource DescriptionNameStyle}" 
+                                   Visibility="{Binding Author, Converter={StaticResource StringToVisibilityConverter}}"/>
+                    
+                        <TextBlock Grid.Row="1" 
+                                   Text="{Binding Source={StaticResource Localization}, Path=UI.BookInfo_Language}" 
+                                   Style="{StaticResource DescriptionNameStyle}" 
+                                   Visibility="{Binding Language, Converter={StaticResource StringToVisibilityConverter}}"/>
+
+                        <TextBlock Grid.Row="2" 
+                                   Text="{Binding Source={StaticResource Localization}, Path=UI.BookInfoPage_Price}" 
+                                   Style="{StaticResource DescriptionNameStyle}" 
+                                   Visibility="{Binding CatalogBookItemModel, Converter={StaticResource CatalogBookItemModelPriceToVisibilityConverter}}"/>
+
+                        <TextBlock Grid.Row="3" 
+                                   Text="{Binding Source={StaticResource Localization}, Path=UI.BookInfoPage_Type}" 
+                                   Style="{StaticResource DescriptionNameStyle}" 
+                                   Visibility="{Binding Type, Converter={StaticResource StringToVisibilityConverter}}"/>
+                        
+                        <TextBlock Grid.Row="0" Grid.Column="2"
+                                   Text="{Binding Author}"
+                                   FontSize="23"
+                                   Margin="0 -3 0 24"
+                                   TextWrapping="Wrap"
+                                   Foreground="{StaticResource PhoneAccentBrush}" 
+                                   Visibility="{Binding Author, Converter={StaticResource StringToVisibilityConverter}}"/>
+                    
+                        <TextBlock Grid.Row="1" Grid.Column="2" Margin="0 0 0 24"
+                                   Text="{Binding Language, Converter={StaticResource StringCaseConverter}, ConverterParameter=u}"
+                                   Visibility="{Binding Language, Converter={StaticResource StringToVisibilityConverter}}"/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="2" Margin="0 0 0 24"
+                                   Text="{Binding CatalogBookItemModel, Converter={StaticResource CatalogBookItemModelToPriceConverter}}"
+                                   Visibility="{Binding CatalogBookItemModel, Converter={StaticResource CatalogBookItemModelPriceToVisibilityConverter}}"/>
+
+                        <TextBlock Grid.Row="3" Grid.Column="2" Margin="0 0 0 24"
+                                   Text="{Binding Type}"
+                                   Visibility="{Binding Type, Converter={StaticResource StringToVisibilityConverter}}"/>
+
+                    </Grid>
+
+                    <TextBlock 
+                        Text="{Binding Source={StaticResource Localization}, Path=UI.BookInfo_Annotation}"
+                        Foreground="#70FFFFFF"
+                        FontSize="36"
+                        FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                        Margin="0 0 0 24"
+                        Visibility="{Binding Description, Converter={StaticResource StringToVisibilityConverter}}"/>
+                
+                    <TextBlock TextWrapping="Wrap" FontSize="21" Margin="0 0 0 12"
+                               Text="{Binding Description}"
+                               Visibility="{Binding Description, Converter={StaticResource StringToVisibilityConverter}}"/>
+
+                    <Button Content="{Binding Source={StaticResource Localization}, Path=UI.AppBar_DownloadTrialBtn_Text}"
+                            Visibility="{Binding CanDownloadTrial, Converter={StaticResource BoolToVisibilityConverter}}"
+                            Click="DownloadTrial"/>
+                
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+
+        <telerikInput:RadListPicker 
+            x:Name="ShareMethodPicker"
+            Height="0"
+            Width="0"
+            InlineModeThreshold="0"
+            SelectionMode="Single"
+            PopupHeader="{Binding Source={StaticResource Localization}, Path=UI.BookInfoPage_SelectSharingMethodTitle}"
+            ItemsSource="{Binding SharingDataModel.ShareMethods}"
+            IsExpanded="{Binding SharingDataModel.ShowShareMethodSelector, Mode=TwoWay}">
+            <telerikInput:RadListPicker.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock 
+                        Text="{Binding Name, Converter={StaticResource StringCaseConverter}, ConverterParameter=u}" 
+                        Foreground="#FFFFFE" 
+                        cal:Action.TargetWithoutContext="{Binding ElementName=ShareMethodPicker, Path=DataContext.SharingDataModel}"
+                        cal:Message.Attach="[Event Tap] = [Action Share($dataContext)]"/>
+                </DataTemplate>
+            </telerikInput:RadListPicker.ItemTemplate>
+        </telerikInput:RadListPicker>
+        
+    </Grid>
+
+</phone:PhoneApplicationPage>

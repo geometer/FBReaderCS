@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{434A1A03-D0C9-4080-B42F-958B41F141E7}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FBReader.AppServices</RootNamespace>
+    <AssemblyName>FBReader.AppServices</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <FodyPath>..\packages\Fody.1.13.8.0</FodyPath>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Reading|AnyCPU'">
+    <OutputPath>bin\Debug Reading\</OutputPath>
+    <DefineConstants>READING;</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Reading|x86'">
+    <OutputPath>bin\x86\Debug Reading\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Reading|ARM'">
+    <OutputPath>bin\ARM\Debug Reading\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Reading|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug_Reading\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;READING;</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Reading|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug_Reading\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug_Reading|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug_Reading\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CatalogReaders\AcquisitionServices\AcquisitionServiceFactory.cs" />
+    <Compile Include="CatalogReaders\AcquisitionServices\IAcquisitionService.cs" />
+    <Compile Include="CatalogReaders\AcquisitionServices\IAcquisitionServiceFactory.cs" />
+    <Compile Include="CatalogReaders\AcquisitionServices\LitresAcquisitionService.cs" />
+    <Compile Include="CatalogReaders\Authorization\CatalogAuthorizationFactory.cs" />
+    <Compile Include="CatalogReaders\Authorization\DummyAuthorizationService.cs" />
+    <Compile Include="CatalogReaders\Authorization\ICatalogAuthorizationFactory.cs" />
+    <Compile Include="CatalogReaders\Authorization\ICatalogAuthorizationService.cs" />
+    <Compile Include="CatalogReaders\Authorization\LitresAuthorizationService.cs" />
+    <Compile Include="CatalogReaders\Authorization\OpdsAuthorizationServiceBase.cs" />
+    <Compile Include="CatalogReaders\Authorization\SkyDriveAuthorizationService.cs" />
+    <Compile Include="CatalogReaders\Readers\ISearchableCatalogReader.cs" />
+    <Compile Include="CatalogReaders\Readers\ITreeCatalogReader.cs" />
+    <Compile Include="CatalogReaders\Readers\CatalogReaderFactory.cs" />
+    <Compile Include="CatalogReaders\Readers\ICatalogReader.cs" />
+    <Compile Include="CatalogReaders\Readers\ICatalogReaderFactory.cs" />
+    <Compile Include="CatalogReaders\Readers\LitresCatalogReader.cs" />
+    <Compile Include="CatalogReaders\Readers\OpdsCatalogReader.cs" />
+    <Compile Include="CatalogReaders\OpdsFilters\AcquisitionBuyFilter.cs" />
+    <Compile Include="CatalogReaders\OpdsFilters\IOpdsBadFormatFilter.cs" />
+    <Compile Include="CatalogReaders\OpdsFilters\UnescapedAmpersandsFilter.cs" />
+    <Compile Include="CatalogReaders\OpdsFilters\UnescapedCdataFilter.cs" />
+    <Compile Include="CatalogReaders\OpdsFilters\UnescapedHtmlDescriptionFilter.cs" />
+    <Compile Include="CatalogReaders\OpdsFilters\UnescapedQuotesFilter.cs" />
+    <Compile Include="CatalogReaders\OpdsFilters\UnescapedSignsFilter.cs" />
+    <Compile Include="CatalogReaders\Readers\SdCardCatalogReader.cs" />
+    <Compile Include="CatalogReaders\Readers\SkyDriveCatalogReader.cs" />
+    <Compile Include="CatalogReaders\SkyDrive\SkyDriveFile.cs" />
+    <Compile Include="CatalogReaders\SkyDrive\SkyDriveFolder.cs" />
+    <Compile Include="CatalogReaders\SkyDrive\SkyDriveItem.cs" />
+    <Compile Include="Controller\BookmarksController.cs" />
+    <Compile Include="Controller\CatalogController.cs" />
+    <Compile Include="Controller\DownloadController.cs" />
+    <Compile Include="Controller\IBookView.cs" />
+    <Compile Include="Controller\ReadController.cs" />
+    <Compile Include="Controller\SearchInBookController.cs" />
+    <Compile Include="Controller\SettingsController.cs" />
+    <Compile Include="Controller\Translation\AdmAccessToken.cs" />
+    <Compile Include="Controller\Translation\AdmAuthentication.cs" />
+    <Compile Include="Controller\Translation\TranslateController.cs" />
+    <Compile Include="Controller\Translation\TranslationException.cs" />
+    <Compile Include="DataBaseInitializer.cs" />
+    <Compile Include="DataModels\BookmarkSearchResultDaraModel.cs" />
+    <Compile Include="DataModels\CatalogDataModel.cs" />
+    <Compile Include="DataModels\SharingDataModel.cs" />
+    <Compile Include="DataModels\ChapterDataModel.cs" />
+    <Compile Include="DataModels\BookmarkItemDataModel.cs" />
+    <Compile Include="DataModels\ColorSchemeDataModel.cs" />
+    <Compile Include="DataModels\FlippingItemDataModel.cs" />
+    <Compile Include="DataModels\SearchInBookResultItemDataModel.cs" />
+    <Compile Include="DataModels\SettingItemDataModel.cs" />
+    <Compile Include="DataModels\ShareMethodDataModel.cs" />
+    <Compile Include="Events\BookDownloaded.cs" />
+    <Compile Include="Events\BookmarkRemoved.cs" />
+    <Compile Include="Events\BookRemoved.cs" />
+    <Compile Include="Events\UILanguageChanged.cs" />
+    <Compile Include="IReadView.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\GlobalAssemblyInfo.cs">
+      <Link>Properties/GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Services\EncryptService.cs" />
+    <Compile Include="Services\ErrorHandler.cs" />
+    <Compile Include="CatalogReaders\Authorization\HttpAuthorizationService.cs" />
+    <Compile Include="Services\FlurryAnalytics.cs" />
+    <Compile Include="Services\IErrorHandler.cs" />
+    <Compile Include="Services\INotificationsService.cs" />
+    <Compile Include="Services\ISkyDriveService.cs" />
+    <Compile Include="Services\ITileManager.cs" />
+    <Compile Include="Services\SkyDriveService.cs" />
+    <Compile Include="Tombstone\AddCatalogPageViewModelStorageHandler.cs" />
+    <Compile Include="Tombstone\AllCatalogsPageViewModelStorageHandler.cs" />
+    <Compile Include="Tombstone\AuthorizationPageViewModelStorageHandler.cs" />
+    <Compile Include="Tombstone\BookInfoPageViewModelStorageHandler.cs" />
+    <Compile Include="Tombstone\BookmarkSearchPageViewModelStorageHandler.cs" />
+    <Compile Include="Tombstone\BookmarksPivotViewModelStorageHandler.cs" />
+    <Compile Include="Tombstone\CatalogPageViewModelStorageHandler.cs" />
+    <Compile Include="Tombstone\CatalogSearchPageStorageHandler.cs" />
+    <Compile Include="Tombstone\ContentPageViewModelStorageHandler.cs" />
+    <Compile Include="Tombstone\EditBookPageViewModelStorageHandler.cs" />
+    <Compile Include="Tombstone\SearchPageViewModelStorageHandler.cs" />
+    <Compile Include="Tombstone\SettingsPivotViewModelStorageHandler.cs" />
+    <Compile Include="Tombstone\StateSaving\IRestorable.cs" />
+    <Compile Include="Tombstone\ReadPageViewModelStorageHandler.cs" />
+    <Compile Include="Tombstone\SearchInBookPageViewModelStorageHandler.cs" />
+    <Compile Include="Tombstone\StateSaving\IStorageStateSaver.cs" />
+    <Compile Include="Tombstone\StateSaving\StorageStateSaver.cs" />
+    <Compile Include="Tombstone\UserLibraryPageViewModelStorageHandler.cs" />
+    <Compile Include="Tombstone\WebBrowserPageViewModelStorageHandler.cs" />
+    <Compile Include="TransientStorage.cs" />
+    <Compile Include="ViewModels\Base\BusyViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Catalogs\AllCatalogsSearchPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\BookInfoPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Bookmarks\BookmarkSearchPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Bookmarks\BookmarkListBase.cs" />
+    <Compile Include="ViewModels\Pages\Catalogs\AuthorizationPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Catalogs\CatalogPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Catalogs\AddCatalogPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Catalogs\CatalogPageViewModelBase.cs" />
+    <Compile Include="ViewModels\Pages\Catalogs\CatalogSearchPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\ContentsPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Bookmarks\AllBooksBookmarksViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Bookmarks\BookmarksPivotViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Bookmarks\ThisBookBookmarksViewModel.cs" />
+    <Compile Include="ViewModels\Pages\DownloadListPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\EditBookPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\MainHub\CatalogsViewModel.cs" />
+    <Compile Include="ViewModels\Pages\MainHub\UserLibraryViewModel.cs" />
+    <Compile Include="ViewModels\Pages\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\ReadPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\SearchInBookPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\SearchPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Settings\AboutViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Settings\HyphenationSettingPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Settings\CSSSettingPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Settings\FlippingSettingPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Settings\FontSettingPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Settings\FormattingViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Settings\GeneralViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Settings\LockScreenSettingPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Settings\MarginsSettingPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Settings\MenuSettingPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Settings\OrientationSettingPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Settings\SettingsItemBase.cs" />
+    <Compile Include="ViewModels\Pages\Settings\SettingsPivotViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Settings\ThemeSettingPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\UserLibraryPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\WebBrowserPageViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Caliburn\Caliburn.Micro.WP8.Extensions\Caliburn.Micro.WP8.Extensions.csproj">
+      <Project>{749ADF14-7D11-4380-AB64-CEB61DFF2A73}</Project>
+      <Name>Caliburn.Micro.WP8.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Caliburn\Caliburn.Micro.WP8\Caliburn.Micro.WP8.csproj">
+      <Project>{50DAA3F0-3BAD-433A-B4B2-4A38DEF9DFAF}</Project>
+      <Name>Caliburn.Micro.WP8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.Common\FBReader.Common.csproj">
+      <Project>{2893A37C-A92E-40C0-9176-0D91E2032A69}</Project>
+      <Name>FBReader.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.DataModel\FBReader.DataModel.csproj">
+      <Project>{A6589AF0-743F-47EC-B3F9-DF082DAA8088}</Project>
+      <Name>FBReader.DataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.Localization\FBReader.Localization.csproj">
+      <Project>{0CFC7D30-1590-4D89-9753-6F9959A87A74}</Project>
+      <Name>FBReader.Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.PhoneServices\FBReader.PhoneServices.csproj">
+      <Project>{A26783ED-52EE-458C-A237-EAA0378432C2}</Project>
+      <Name>FBReader.PhoneServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.Render\FBReader.Render.csproj">
+      <Project>{047501BE-F412-45E7-9A18-9BFBD615DF23}</Project>
+      <Name>FBReader.Render</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.Tokenizer\FBReader.Tokenizer.csproj">
+      <Project>{B478202A-2653-4B13-B23B-391B5889EA97}</Project>
+      <Name>FBReader.Tokenizer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.Settings\FBReader.Settings.csproj">
+      <Project>{D7F75CE3-22AD-4272-BD15-100E0BDC8299}</Project>
+      <Name>FBReader.Settings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FBReader.WebClient\FBReader.WebClient.csproj">
+      <Project>{7AC3A06F-F2F3-4196-96D2-093ECCB28A39}</Project>
+      <Name>FBReader.WebClient</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Fody.targets">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="FlurryWP8SDK">
+      <HintPath>..\libs\Flurry\FlurryWP8SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Live, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\Microsoft.Live\Microsoft.Live.dll</HintPath>
+    </Reference>
+    <Reference Include="PropertyChanged">
+      <HintPath>..\packages\PropertyChanged.Fody.1.38.4.0\Lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\PropertyChanged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\sl4-windowsphone71\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\sl4-windowsphone71\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\sl4-windowsphone71\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <ProjectExtensions />
+  <Import Project="Fody.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

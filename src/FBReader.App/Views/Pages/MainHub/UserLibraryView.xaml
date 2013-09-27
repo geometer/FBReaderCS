@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="FBReader.App.Views.Pages.MainHub.UserLibraryView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:designViewModels="clr-namespace:FBReader.App.DesignViewModels.MainHub"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    xmlns:caliburn="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+             xmlns:controls="clr-namespace:FBReader.App.Controls"
+             mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    Width="545"
+    d:DesignHeight="530"
+    d:DesignWidth="545"
+    d:DataContext="{d:DesignInstance designViewModels:UserLibraryDesignViewModel, IsDesignTimeCreatable=True}">
+    <UserControl.Resources>
+        <DataTemplate x:Key="BookItemDataTemplate">
+            <Button Style="{StaticResource EmptyButtonStyle}"
+                    caliburn:Message.Attach="[Event Tap] = [Action NavigateToItem($dataContext)]">
+                <StackPanel 
+                    Orientation="Vertical"
+                    Margin="0,0,12,0"
+                    DataContext="{Binding}">
+                    
+                <controls:PlaceholderImage 
+                        Height="173"
+                        Width="173"
+                        Stretch="Fill"
+                        HorizontalAlignment="Left"
+                        IsFrozen="False"
+                        PlaceholderSource="/Resources/Icons/empty_medium.png"
+                        DataContext="{Binding Converter={StaticResource BookImagePathToSourceConverter}, ConverterParameter=false}"
+                        ImageSource="{Binding Result}"/>
+                    
+                <TextBlock
+                    FontWeight="Black"
+                    FontSize="17"
+                    Text="{Binding Title}"/>
+                <TextBlock
+                    Margin="0,0,0,18"
+                    FontSize="17"
+                    LineHeight="17"
+                    LineStackingStrategy="BlockLineHeight"
+                    FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                    Text="{Binding Author}"/>
+                </StackPanel>
+            </Button>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Margin="12,0,0,0" Background="Transparent">
+        <TextBlock 
+            TextWrapping="Wrap"
+            Text="{Binding Source={StaticResource Localization}, Path=UI.UserLibraryView_NoItemsText}"
+            Visibility="{Binding IsEmpty, Converter={StaticResource BoolToVisibilityConverter}}"/>
+        <Grid Visibility="{Binding IsEmpty, Converter={StaticResource InvertBoolToVisibilityConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ItemsControl ItemsSource="{Binding Books}"
+                          ItemTemplate="{StaticResource BookItemDataTemplate}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <telerikPrimitives:RadWrapPanel ItemHeight="235" ItemWidth="173"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+            <HyperlinkButton
+                Grid.Row="1"
+                Margin="0,-18,0,0"
+                NavigateUri="/Views/Pages/UserLibraryPage.xaml"
+                FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                Foreground="{StaticResource PhoneAccentBrush}"
+                Style="{StaticResource EmptyButtonStyle}"
+                Content="{Binding UI.UserLibararyView_AllBooksButton_Content, Source={StaticResource Localization}}"/>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,389 @@
+﻿<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+  xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+ xmlns:telerikInput="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+  xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+  xmlns:telerikCore="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Core"
+  xmlns:telerikTextBox="clr-namespace:Telerik.Windows.Controls.PhoneTextBox;assembly=Telerik.Windows.Controls.Primitives"
+  xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Converters="clr-namespace:FBReader.App.Converters"
+  xmlns:templateSelectors="clr-namespace:FBReader.App.Controls.TemplateSelectors"
+  xmlns:caliburn="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
+
+    <!--BitmapImage x:Key="SelectedIcon" UriSource="/Resources/Images/ic_select.png"/-->
+    <System:String x:Key="IconSelect">ic_select.png</System:String>
+    <BitmapImage x:Key="SelectedIcon">
+        <BitmapImage.UriSource>
+            <Binding Source="{StaticResource IconSelect}">
+                <Binding.Converter>
+                    <Converters:ImageNameToUriConverter/>
+                </Binding.Converter>
+            </Binding>
+        </BitmapImage.UriSource>
+    </BitmapImage>
+    
+    <Color x:Key="ApplicationBarBackgroundColor">#FF1F1F1F</Color>    
+    <Color x:Key="ApplicationBarForegroundColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="FBReaderGrayBrush" Color="#FF1F1F1F"/>
+    <SolidColorBrush x:Key="SearchTitleForegroundBrush">#BFFFFFFF</SolidColorBrush>
+    <SolidColorBrush x:Key="BookInfoDescriptionNameBrush">#A5FFFFFF</SolidColorBrush>
+
+    <Style x:Key="DefaultApplicationPageStyle" TargetType="phone:PhoneApplicationPage">
+        <Setter Property="shell:SystemTray.Opacity" Value="0" />
+        <Setter Property="shell:SystemTray.BackgroundColor" Value="Black" />
+        <Setter Property="shell:SystemTray.ForegroundColor" Value="#FFFFFE" />
+        <Setter Property="shell:SystemTray.IsVisible" Value="True" />
+    </Style>
+    
+    <Style x:Key="TitleStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMedium}" />
+        <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}" />
+        <Setter Property="Margin" Value="12 0" />
+    </Style>
+    
+    <Style x:Key="SettingsRadioButtonStyle" TargetType="RadioButton">
+        <Setter Property="ClickMode" Value="Press" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Grid Background="Transparent" >
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver"/>
+                                <VisualState x:Name="Pressed" />
+                                <VisualState x:Name="Disabled"/>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CheckMark" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SelectedIcon" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked" />
+                                <VisualState x:Name="Indeterminate"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid Width="{TemplateBinding MinWidth}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="12"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Border 
+                                        x:Name="Border"
+                                        Width="{TemplateBinding MinWidth}" 
+                                        Height="{TemplateBinding MinHeight}"
+                                        Background="Transparent"
+                                        BorderThickness="3" 
+                                        BorderBrush="#454545">
+
+                                </Border>
+                                <Border x:Name="CheckMark"
+                                                Width="{TemplateBinding MinWidth}" 
+                                                Height="{TemplateBinding MinHeight}" 
+                                                Background="#FF313131"
+                                                BorderThickness="3" 
+                                                BorderBrush="#7a7a7a"
+                                                Visibility="Collapsed"/>
+                                <ContentControl 
+                                        x:Name="ContentContainer" 
+                                        Grid.Column="1" 
+                                        ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                        HorizontalContentAlignment="Center" 
+                                        VerticalContentAlignment="Center"/>
+                                <Image 
+                                    x:Name="SelectedIcon" 
+                                    Source="{StaticResource SelectedIcon}" 
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" 
+                                    Stretch="None" 
+                                    Visibility="Collapsed"/>
+                            </Grid>
+                            <TextBlock Grid.Row="2"
+                                            TextWrapping="Wrap"
+                                            FontSize="17"
+                                            HorizontalAlignment="Center"
+                                            TextAlignment="Center"
+                                            Margin="-5 0"
+                                            FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                                            Foreground="{StaticResource PhoneTextBoxBrush}"
+                                            Text="{TemplateBinding Content}" />
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ThemeRadioButtonStyle" TargetType="RadioButton">
+        <Setter Property="Width" Value="204" />
+        <Setter Property="Height" Value="198" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Grid Background="Transparent" >
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver"/>
+                                <VisualState x:Name="Pressed" />
+                                <VisualState x:Name="Disabled"/>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SelectedIcon" Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked" />
+                                <VisualState x:Name="Indeterminate"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                            <ContentControl 
+                                    x:Name="ContentContainer" 
+                                    Grid.Column="1" 
+                                    Content="{TemplateBinding Content}"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                    HorizontalContentAlignment="Center" 
+                                    VerticalContentAlignment="Center"/>
+                            <Image 
+                                x:Name="SelectedIcon" 
+                                Margin="12"
+                                Source="{StaticResource SelectedIcon}" 
+                                VerticalAlignment="Bottom" 
+                                HorizontalAlignment="Right" 
+                                Stretch="None" 
+                                Visibility="Collapsed"/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="HeaderStyle" TargetType="ContentControl">
+        <Setter Property="Foreground" Value="{StaticResource PhoneSubtleBrush}" />
+        <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeNormal}" />
+        <Setter Property="Padding" Value="0, 0,0,7" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+    <Style x:Key="PopupHeaderStyle" TargetType="ContentControl">
+        <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMedium}" />
+        <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}" />
+        <Setter Property="Margin" Value="24,55,0,35" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+    </Style>
+
+    <Style TargetType="telerikInput:RadListPicker">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HeaderStyle" Value="{StaticResource HeaderStyle}" />
+        <Setter Property="Background" Value="{StaticResource PhoneTextBoxBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource PhoneTextBoxForegroundBrush}" />
+        <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMediumLarge}" />
+        <Setter Property="PopupHeaderStyle" Value="{StaticResource PopupHeaderStyle}" />
+        <Setter Property="Margin" Value="{StaticResource PhoneTouchTargetOverhang}" />
+        <Setter Property="MinHeight" Value="44" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush" Value="{StaticResource PhoneTextBoxBrush}" />
+        <Setter Property="ActionButtonVisibility" Value="Collapsed"/>
+        <Setter Property="PopupHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="ContentControl">
+                    <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMedium}" />
+                    <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}" />
+                    <Setter Property="Margin" Value="24,48,0,35" />
+                    <Setter Property="HorizontalContentAlignment" Value="Left" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="PopupOpenAnimation">
+            <Setter.Value>
+                <telerikCore:RadTileAnimation PerspectiveAngleY="0" IsTranslationEnabled="False" PerspectiveAngleX="90"
+                        InOutAnimationMode="In" SequentialMode="FirstToLast" InitialDelay="0:0:.08" Duration="0:0:.2"></telerikCore:RadTileAnimation>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="PopupCloseAnimation">
+            <Setter.Value>
+                <telerikCore:RadTileAnimation PerspectiveAngleY="0" IsTranslationEnabled="False" PerspectiveAngleX="90"
+                        InOutAnimationMode="Out" SequentialMode="FirstToLast" SequentialItemDelay="0" Duration="0:0:.2"></telerikCore:RadTileAnimation>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="telerikInput:RadListPicker">
+                    <Grid x:Name="LayoutRoot">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                Storyboard.TargetProperty="Background" Duration="0">
+                                            <DiscreteObjectKeyFrame
+                                                    Value="{StaticResource PhoneTextBoxEditBackgroundBrush}" KeyTime="0" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                Storyboard.TargetProperty="BorderBrush" Duration="0">
+                                            <DiscreteObjectKeyFrame Value="{StaticResource PhoneTextBoxEditBorderBrush}"
+                                                    KeyTime="0" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Expanded">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                Storyboard.TargetProperty="Background" Duration="0">
+                                            <DiscreteObjectKeyFrame
+                                                    Value="{StaticResource PhoneTextBoxEditBackgroundBrush}" KeyTime="0" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                Storyboard.TargetProperty="BorderBrush" Duration="0">
+                                            <DiscreteObjectKeyFrame Value="{StaticResource PhoneTextBoxEditBorderBrush}"
+                                                    KeyTime="0" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LayoutRoot"
+                                                Storyboard.TargetProperty="Opacity" Duration="0">
+                                            <DiscreteObjectKeyFrame Value="0.3" KeyTime="0" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                Storyboard.TargetProperty="Background" Duration="0">
+                                            <DiscreteObjectKeyFrame Value="Transparent" KeyTime="0" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <ContentControl Grid.Row="0" x:Name="HeaderPresenter" CacheMode="BitmapCache"
+                                Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                Style="{TemplateBinding HeaderStyle}" />
+                        <Border x:Name="border" CacheMode="BitmapCache"
+                                Grid.Row="1" Grid.ColumnSpan="2"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Background="{TemplateBinding Background}">
+                            <Grid x:Name="mainLayout">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <telerikInput:RadListPickerItem x:Name="PopupModeLabel" HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch" Style="{TemplateBinding ItemStyle}"
+                                        MinHeight="{TemplateBinding MinHeight}" />
+                                <Canvas x:Name="ItemsParent" />
+                                <telerikTextBox:TextBoxSecondaryButton x:Name="ActionButton" MinHeight="38" MinWidth="38" Grid.Column="1" Style="{TemplateBinding ActionButtonStyle}" Visibility="{TemplateBinding ActionButtonVisibility}" />
+                            </Grid>
+                        </Border>
+
+                        <telerikPrimitives:RadWindow x:Name="Popup" IsFullScreen="True"
+                                IsAnimationEnabled="{TemplateBinding IsAnimationEnabled}"
+                                OpenAnimation="{TemplateBinding PopupOpenAnimation}"
+                                CloseAnimation="{TemplateBinding PopupCloseAnimation}">
+                            <telerikPrimitives:RadWindow.Content>
+                                <Grid 
+                                    Background="{StaticResource PhoneChromeBrush}"
+                                    telerikCore:RadTileAnimation.ContainerToAnimate="{Binding ElementName=PopupList, Path=.}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <ContentControl Grid.Row="0" CacheMode="BitmapCache"
+                                            Content="{TemplateBinding PopupHeader}"
+                                            ContentTemplate="{TemplateBinding PopupHeaderTemplate}"
+                                            Style="{TemplateBinding PopupHeaderStyle}" />
+                                    <telerikPrimitives:RadDataBoundListBox Grid.Row="1" x:Name="PopupList"
+                                            telerikCore:InteractionEffectManager.IsInteractionEnabled="True"
+                                            Style="{TemplateBinding PopupStyle}"
+                                            IsCheckModeActive="{Binding SelectionMode, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource SelectionModeToBooleanConverter}}"
+                                            DisplayMemberPath="{TemplateBinding DisplayMemberPath}"
+                                            ItemContainerStyle="{TemplateBinding PopupItemStyle}"
+                                            CheckModeDeactivatedOnBackButton="False" />
+                                </Grid>
+                            </telerikPrimitives:RadWindow.Content>
+                            <telerikPrimitives:RadWindow.ApplicationBarInfo>
+                                <telerikPrimitives:ApplicationBarInfo x:Name="PART_AppBarInfo">
+                                    <telerikPrimitives:ApplicationBarButton x:Name="PART_OKButton" />
+                                    <telerikPrimitives:ApplicationBarButton x:Name="PART_CancelButton" />
+                                </telerikPrimitives:ApplicationBarInfo>
+                            </telerikPrimitives:RadWindow.ApplicationBarInfo>
+                        </telerikPrimitives:RadWindow>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="PopupItemStyle">
+            <Setter.Value>
+                <Style TargetType="telerikPrimitives:RadDataBoundListBoxItem">
+                    <Setter Property="Padding" Value="24, 26, 0, 26"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="PopupStyle">
+            <Setter.Value>
+                <Style TargetType="telerikPrimitives:RadDataBoundListBox">
+                    <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeExtraLarge}" />
+                    <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiLight}" />
+                    <Setter Property="Background" Value="{StaticResource PhoneChromeBrush}" />
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Stretch" />
+                    <Setter Property="CheckBoxStyle">
+                        <Setter.Value>
+                            <Style TargetType="telerikPrimitives:ItemCheckBox">
+                                <Setter Property="VerticalAlignment" Value="Center" />
+                                <Setter Property="Margin" Value="0, 0, -18, 0"/>
+                            </Style>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="EmptyButtonStyle" TargetType="ButtonBase">
+        <Setter Property="telerikCore:InteractionEffectManager.IsInteractionEnabled" Value="True" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ButtonBase">
+                    <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    
+</ResourceDictionary> 

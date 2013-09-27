@@ -1,0 +1,87 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FBReader.App.Views.Pages.ReadPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ab="clr-namespace:FBReader.App.Controls.ApplicationBar"
+    xmlns:Controls="clr-namespace:FBReader.App.Controls"
+    xmlns:telerik="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Core"
+    xmlns:Controls1="clr-namespace:FBReader.App.Views.Controls" xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:pages="clr-namespace:FBReader.AppServices.ViewModels.Pages;assembly=FBReader.AppServices"
+    xmlns:telerikInput="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Input"
+    xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" xmlns:app="clr-namespace:FBReader.App"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d"
+    UseLayoutRounding="False"
+    telerik:InteractionEffectManager.IsInteractionEnabled="True"
+    shell:SystemTray.BackgroundColor="{StaticResource PhoneChromeColor}"
+    shell:SystemTray.Opacity="0"
+    Name="Page"
+    d:DataContext="{d:DesignInstance Type=pages:ReadPageViewModel}">
+    <shell:SystemTray.ProgressIndicator>
+        <shell:ProgressIndicator IsIndeterminate="True" />
+    </shell:SystemTray.ProgressIndicator>
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Canvas x:Name="LayoutRoot" Background="{Binding ElementName=PageCanvas, Path=Background}">
+
+        <Controls:ThreePagePanel x:Name="PageCanvas" Width="480" Height="800">
+        </Controls:ThreePagePanel>
+
+        <Controls1:ColorSelectorControl x:Name="ColorSelector"/>
+
+        <Controls:TranslationControl x:Name="TranslationControl"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Center"/>
+        
+        <Image Source="{Binding IsFavouriteBook}"/>
+        
+        <ab:FBReaderApplicationBar CurrentState="Normal"                                   
+                                   PageOrientation="{Binding ElementName=Page, Path=Orientation}"
+                                   x:Name="AppBar">
+            <ab:FBReaderApplicationBar.IconButtons>
+                <ab:FBReaderApplicationBarIconButton Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_Search}" Icon="/Resources/Icons/search.png" Message="GoToSearch"/>
+                <ab:FBReaderApplicationBarIconButton Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_TableOfContent}" Icon="/Resources/Icons/toc.png" Message="GoToTableOfContents"/>
+                <ab:FBReaderApplicationBarIconButton Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_ToFavorites}" Message="AddRemoveToFavourites"/>
+            </ab:FBReaderApplicationBar.IconButtons>
+            <ab:FBReaderApplicationBar.MenuItems>
+                <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_Bookmarks}" Message="GoToBookmarks" />
+                <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_Share}" Message="ShareAsync"/>
+                <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_Pin}" Message="PinToDesktop"/>
+                <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_Settings}" Message="GoToSettings" />
+                <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_BookInfo}" Message="GoToBookInfo" />
+                <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_ColorScheme}" Message="GoToColorSchemeSelection"/>
+                <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_ZoomIn}" Message="ZoomIn" />
+                <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_ZoomOut}" Message="ZoomOut" />
+            </ab:FBReaderApplicationBar.MenuItems>
+        </ab:FBReaderApplicationBar>
+
+        <telerikInput:RadListPicker 
+            x:Name="ShareMethodPicker"
+            Height="0"
+            Width="0"
+            InlineModeThreshold="0"
+            PopupHeader="{Binding Source={StaticResource Localization}, Path=UI.BookInfoPage_SelectSharingMethodTitle}"
+            ItemsSource="{Binding SharingDataModel.ShareMethods}"
+            IsExpanded="{Binding SharingDataModel.ShowShareMethodSelector, Mode=TwoWay}">
+            <telerikInput:RadListPicker.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock 
+                        Text="{Binding Name, Converter={StaticResource StringCaseConverter}, ConverterParameter=u}" 
+                        Foreground="#FFFFFE" 
+                        cal:Action.TargetWithoutContext="{Binding ElementName=ShareMethodPicker, Path=DataContext.SharingDataModel}"
+                        cal:Message.Attach="[Event Tap] = [Action Share($dataContext)]"/>
+                </DataTemplate>
+            </telerikInput:RadListPicker.ItemTemplate>
+        </telerikInput:RadListPicker>
+
+    </Canvas>
+
+  
+</phone:PhoneApplicationPage>
