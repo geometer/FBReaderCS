@@ -1,0 +1,99 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="FBReader.App.Views.Pages.Settings.ScreenBrightnessPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:settings="clr-namespace:FBReader.AppServices.ViewModels.Pages.Settings;assembly=FBReader.AppServices"
+    xmlns:controls="clr-namespace:FBReader.App.Views.Controls"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    Style="{StaticResource DefaultApplicationPageStyle}"
+    d:DataContext="{d:DesignInstance settings:ScreenBrightnessPageViewModel}">
+
+
+    <phone:PhoneApplicationPage.Resources>
+        <system:String x:Key="BigDevice">DevBig.png</system:String>
+        <BitmapImage x:Key="PhoneBigImage" UriSource="{Binding Source={StaticResource BigDevice}, Converter={StaticResource ImageNameToUriConverter}}"/>
+    </phone:PhoneApplicationPage.Resources>
+
+        <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:TitlePanelControl Margin="0 32 0 0"
+            Grid.Row="0" 
+            Title="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_Title}" 
+            Subtitle="{Binding Source={StaticResource Localization}, Path=Settings.SettingsPage_ScreenBrightness}" />
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="24,0,12,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Slider 
+                x:Name="BrightnessSlider"
+                Grid.Column="1"
+                VerticalAlignment="Top"
+                Maximum="100" 
+                Minimum="10" 
+                Value="{Binding Brightness, Mode=TwoWay}"
+                SmallChange="5" 
+                LargeChange="10" 
+                Orientation="Vertical"
+                Height="515"/>
+
+            <Grid VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Image 
+                    Source="{StaticResource PhoneBigImage}" 
+                    Stretch="None"/>
+                <Grid
+                    x:Name="Display"
+                    Width="260" Height="405" Margin="0 0 0 16">
+                    <TextBlock 
+                        Margin="8 0"
+                        VerticalAlignment="Top"
+                        x:Name="DummyText" 
+                        TextWrapping="Wrap" 
+                        LineHeight="20" 
+                        FontSize="14"
+                        Opacity="0.55"
+                        LineStackingStrategy="BlockLineHeight" 
+                        MaxHeight="405">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum felis ac ligula fermentum ultrices. Nullam consectetur suscipit dui, sit amet imperdiet tellus. Nullam at lacinia nibh. Quisque facilisis venenatis ante, ac tempus sapien aliquet molestie. Integer arcu ante, ultricies pharetra aliquam et, vehicula vitae eros. Duis sed felis a dolor accumsan adipiscing. Vestibulum vel lacus in nisi porta tincidunt. Aliquam tempus dignissim lectus a molestie. Aliquam sed lacus vitae lectus commodo consequat. Aliquam adipiscing quis velit at congue. Maecenas sit amet massa a velit ornare blandit non vel arcu. Curabitur iaculis non odio at iaculis. Sed dapibus, odio feugiat aliquam porttitor, tellus eros tempus nisi, vel ornare arcu sem sed ligula.
+
+Cras venenatis rhoncus ultricies. Nulla risus lectus, consectetur in odio non, accumsan euismod magna.
+                    </TextBlock>
+                    <Canvas 
+                        x:Name="Brightness"
+                        Background="Black" 
+                        Opacity="{Binding ElementName=BrightnessSlider, Path=Value, Converter={StaticResource BrightnessToOpacityConverter}}"/>
+                </Grid>
+            </Grid>
+            <TextBlock 
+                Grid.Row="1" 
+                Grid.Column="0"
+                Text="{Binding Brightness, StringFormat='\{0\}%'}" 
+                Foreground="{StaticResource PhoneSubtleBrush}"
+                FontSize="{StaticResource PhoneFontSizeMediumLarge}"
+                HorizontalAlignment="Center"
+                Margin="0 12 0 0"/>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

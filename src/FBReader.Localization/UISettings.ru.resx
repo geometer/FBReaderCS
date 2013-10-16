@@ -318,4 +318,7 @@
   <data name="SettingPage_Formatting_CSS_FontSize_On" xml:space="preserve">
     <value>форматировать размер шрифта</value>
   </data>
+  <data name="SettingsPage_ScreenBrightness" xml:space="preserve">
+    <value>яркость экрана</value>
+  </data>
 </root>

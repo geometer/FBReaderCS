@@ -456,4 +456,7 @@
   <data name="CatalogPage_Refresh_MenuItem" xml:space="preserve">
     <value>refresh</value>
   </data>
+  <data name="ReadPage_AppBar_Brightness" xml:space="preserve">
+    <value>brightness</value>
+  </data>
 </root>

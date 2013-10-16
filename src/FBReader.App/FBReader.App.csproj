@@ -138,6 +138,7 @@
       <Link>Properties/GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="AppBootstraper.cs" />
+    <Compile Include="AssociationUriMapper.cs" />
     <Compile Include="Behaviours\PasswordBoxUpdateBindingBehaviour.cs" />
     <Compile Include="Behaviours\TextBoxUpdateBindingBehaviour.cs" />
     <Compile Include="BusyOverlayManager.cs" />
@@ -186,6 +187,7 @@
     </Compile>
     <Compile Include="Converters\BookImagePathToSourceConverter.cs" />
     <Compile Include="Converters\BookInfoPageImageToSourceConverter.cs" />
+    <Compile Include="Converters\BrightnessToOpacityConverter.cs" />
     <Compile Include="Converters\CatalogBookItemModelPriceToVisibilityConverter.cs" />
     <Compile Include="Converters\CatalogBookItemModelToPriceConverter.cs" />
     <Compile Include="Converters\ChapterMarginConverter.cs" />
@@ -319,6 +321,9 @@
     </Compile>
     <Compile Include="Views\Pages\Settings\OrientationSettingPage.xaml.cs">
       <DependentUpon>OrientationSettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Settings\ScreenBrightnessPage.xaml.cs">
+      <DependentUpon>ScreenBrightnessPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\Settings\SettingsPivot.xaml.cs">
       <DependentUpon>SettingsPivot.xaml</DependentUpon>
@@ -510,6 +515,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\Settings\OrientationSettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\Settings\ScreenBrightnessPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

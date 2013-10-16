@@ -40,8 +40,6 @@
                                      VerticalAlignment="Center"
                                      HorizontalAlignment="Center"/>
         
-        <Image Source="{Binding IsFavouriteBook}"/>
-        
         <ab:FBReaderApplicationBar CurrentState="Normal"                                   
                                    PageOrientation="{Binding ElementName=Page, Path=Orientation}"
                                    x:Name="AppBar">
@@ -56,11 +54,20 @@
                 <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_Pin}" Message="PinToDesktop"/>
                 <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_Settings}" Message="GoToSettings" />
                 <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_BookInfo}" Message="GoToBookInfo" />
+                <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_Brightness}" Message="GoToBrightness"/>
                 <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_ColorScheme}" Message="GoToColorSchemeSelection"/>
                 <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_ZoomIn}" Message="ZoomIn" />
                 <ab:FBReaderApplicationBarMenuItem Text="{Binding Source={StaticResource Localization}, Path=UI.ReadPage_AppBar_ZoomOut}" Message="ZoomOut" />
             </ab:FBReaderApplicationBar.MenuItems>
         </ab:FBReaderApplicationBar>
+
+        <Canvas
+            x:Name="Brightness"
+            Width="{Binding ElementName=PageCanvas, Path=Width}" 
+            Height="{Binding ElementName=PageCanvas, Path=Height}"
+            Background="Black"
+            IsHitTestVisible="False"
+            Opacity="0.0"/>
 
         <telerikInput:RadListPicker 
             x:Name="ShareMethodPicker"

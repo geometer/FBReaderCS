@@ -137,6 +137,7 @@
     <Compile Include="CatalogReaders\Authorization\LitresAuthorizationService.cs" />
     <Compile Include="CatalogReaders\Authorization\OpdsAuthorizationServiceBase.cs" />
     <Compile Include="CatalogReaders\Authorization\SkyDriveAuthorizationService.cs" />
+    <Compile Include="CatalogReaders\OpdsFilters\UrlWithoutProtocolFilter.cs" />
     <Compile Include="CatalogReaders\Readers\ISearchableCatalogReader.cs" />
     <Compile Include="CatalogReaders\Readers\ITreeCatalogReader.cs" />
     <Compile Include="CatalogReaders\Readers\CatalogReaderFactory.cs" />
@@ -249,6 +250,7 @@
     <Compile Include="ViewModels\Pages\Settings\MarginsSettingPageViewModel.cs" />
     <Compile Include="ViewModels\Pages\Settings\MenuSettingPageViewModel.cs" />
     <Compile Include="ViewModels\Pages\Settings\OrientationSettingPageViewModel.cs" />
+    <Compile Include="ViewModels\Pages\Settings\ScreenBrightnessPageViewModel.cs" />
     <Compile Include="ViewModels\Pages\Settings\SettingsItemBase.cs" />
     <Compile Include="ViewModels\Pages\Settings\SettingsPivotViewModel.cs" />
     <Compile Include="ViewModels\Pages\Settings\ThemeSettingPageViewModel.cs" />

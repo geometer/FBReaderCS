@@ -12,10 +12,10 @@
     d:DesignHeight="480" d:DesignWidth="480">
     
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <ItemsControl ItemTemplate="{StaticResource SettingItem}" ItemsSource="{Binding Items}">
-
-        </ItemsControl>
-
+        <ScrollViewer>
+            <ItemsControl ItemTemplate="{StaticResource SettingItem}" ItemsSource="{Binding Items}"/>
+        </ScrollViewer>
+        
         <telerikInput:RadListPicker 
             Height="0"
             Width="0"

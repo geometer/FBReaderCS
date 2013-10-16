@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -208,6 +208,12 @@ namespace FBReader.Settings
         {
             get { return _settingsStorage.GetValueWithDefault("DontShowUploadToSkyDriveMessage", false); }
             set { _settingsStorage.SetValue("DontShowUploadToSkyDriveMessage", value); }
+        }
+
+        public int Brightness
+        {
+            get { return _settingsStorage.GetValueWithDefault("Brightness", 100); }
+            set { _settingsStorage.SetValue("Brightness", value); }
         }
     }
 }

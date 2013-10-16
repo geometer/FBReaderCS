@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -319,6 +319,7 @@ namespace FBReader.App
             _phoneContainer.PerRequest<CSSSettingPageViewModel>();
             _phoneContainer.PerRequest<HyphenationSettingPageViewModel>();
             _phoneContainer.PerRequest<FlippingSettingPageViewModel>();
+            _phoneContainer.PerRequest<ScreenBrightnessPageViewModel>();
 
             //bookmarks
             _phoneContainer.PerRequest<BookmarksPivotViewModel>();
@@ -449,6 +450,7 @@ namespace FBReader.App
                 {
                             Background = new SolidColorBrush(Colors.Black)
                         };
+            frame.UriMapper = new AssociationUriMapper();
 
             Screen.Init(frame);
 //

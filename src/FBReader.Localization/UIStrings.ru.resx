@@ -462,4 +462,7 @@
   <data name="CatalogPage_Refresh_MenuItem" xml:space="preserve">
     <value>обновить</value>
   </data>
+  <data name="ReadPage_AppBar_Brightness" xml:space="preserve">
+    <value>яркость</value>
+  </data>
 </root>

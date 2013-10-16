@@ -29,6 +29,7 @@
                     <converters:CatalogBookItemModelPriceToVisibilityConverter x:Key="CatalogBookItemModelPriceToVisibilityConverter"/>
                     <converters:BookImagePathToSourceConverter x:Key="BookImagePathToSourceConverter"/>
                     <converters:BookInfoPageImageToSourceConverter x:Key="BookInfoPageImageToSourceConverter"/>
+                    <converters:BrightnessToOpacityConverter x:Key="BrightnessToOpacityConverter"/>
                     <listPicker:SelectionModeToBooleanConverter x:Key="SelectionModeToBooleanConverter" />
                     <cimbalinoToolkit:BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
                     <cimbalinoToolkit:BooleanToVisibilityConverter x:Key="InvertBoolToVisibilityConverter" InvertValue="True"/>

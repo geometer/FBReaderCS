@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -382,6 +382,7 @@ namespace FBReader.App.Views.Pages
                 _offsetX = AppSettings.Default.Margin.Left;
                 _offsetY = AppSettings.Default.Margin.Top;
 
+                Brightness.Opacity = 1 - AppSettings.Default.Brightness / 100f;
              
                 PageCanvas.Manipulator.TurnForward += () => TurnPage(true);
                 PageCanvas.Manipulator.TurnBackward += () => TurnPage(false);
