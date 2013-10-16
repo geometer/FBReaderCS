@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -186,7 +186,8 @@ namespace FBReader.App.Controls
         public Size GetSize()
         {
             Debug.WriteLine(Width);
-            return new Size(_workWidth, _workHeight);
+            
+            return new Size(Math.Abs(_workWidth), Math.Abs(_workHeight));
         }
 
         public void Clear()
@@ -198,6 +199,9 @@ namespace FBReader.App.Controls
                 Manipulator.Dispose();
 
             SelectionActions.Hide();
+            SelectionPolygon.Visibility = Visibility.Collapsed;
+            LeftSelectionItem.Visibility = Visibility.Collapsed;
+            RightSelectionItem.Visibility = Visibility.Collapsed;
         }
 
         private void RotateToStart<T>(IList<T> list)

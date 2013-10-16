@@ -34,8 +34,8 @@
         <Polygon 
             x:Name="SelectionPolygon" 
             Visibility="Collapsed" 
-            Width="{Binding ElementName=RootGrid, Path=ActualWidth}" 
-            Height="{Binding ElementName=RootGrid, Path=ActualHeight}"
+            Width="{Binding ElementName=RootGrid, Path=Width}" 
+            Height="{Binding ElementName=RootGrid, Path=Height}"
             VerticalAlignment="Top"
             HorizontalAlignment="Left"/>
         <controls:SelectionItemControl x:Name="LeftSelectionItem" Visibility="Collapsed" VerticalAlignment="Top" HorizontalAlignment="Left"/>
