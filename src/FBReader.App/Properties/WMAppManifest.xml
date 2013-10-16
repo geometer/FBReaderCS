@@ -39,7 +39,7 @@
       </PrimaryToken>
     </Tokens>
     <Extensions>
-      <FileTypeAssociation TaskID="_default" Name="EBook">
+      <FileTypeAssociation TaskID="_default" Name="EBook" NavUriFragment="fileToken=%s">
         <SupportedFileTypes>
           <FileType ContentType="application/fb2">.fb2</FileType>
           <FileType ContentType="application/epub">.epub</FileType>

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -142,6 +142,7 @@ namespace FBReader.AppServices.Controller
 
         public string GetBookType(string type)
         {
+            type = type.ToLower();
             bool isFb2 = 
                 type ==  "application/fb2+zip" || 
                 type.EndsWith(".fb2") || 

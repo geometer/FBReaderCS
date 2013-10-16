@@ -132,6 +132,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Downloading\Loaders\LitresFileLoader.cs" />
+    <Compile Include="Downloading\Loaders\StorageFolderFileLoader.cs" />
     <Compile Include="Downloading\Model\AsyncContext.cs" />
     <Compile Include="Downloading\Model\DownloadItemDataModel.cs" />
     <Compile Include="Downloading\Model\DownloadStatus.cs" />

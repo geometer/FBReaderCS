@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -19,6 +19,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ using FBReader.Common.Exceptions;
 using FBReader.DataModel.Model;
 using FBReader.PhoneServices;
 using FBReader.Render.Parsing;
+using FBReader.Tokenizer.Parsers;
 
 namespace FBReader.AppServices.CatalogReaders.Readers
 {
@@ -55,11 +57,22 @@ namespace FBReader.AppServices.CatalogReaders.Readers
                     var stream = await file.OpenForReadAsync();
 
 // ReSharper disable PossibleNullReferenceException
-                    var type = Path.GetExtension(file.Path).TrimStart('.');
+                    var type = Path.GetExtension(file.Path).TrimStart('.').ToLower();
 // ReSharper restore PossibleNullReferenceException
-                    
-                    var parser = BookFactory.GetPreviewGenerator(type, file.Name, stream);
-                    var preview = parser.GetBookPreview();
+
+
+                    BookSummary preview;
+                    try
+                    {
+                        var parser = BookFactory.GetPreviewGenerator(type, file.Name, stream);
+                        preview = parser.GetBookPreview();
+                    }
+                    catch (Exception e)
+                    {
+                        //can't parse book
+                        Debugger.Break();
+                        continue;
+                    }
                     items.Add(new CatalogBookItemModel
                         {
                             Title = preview.Title,

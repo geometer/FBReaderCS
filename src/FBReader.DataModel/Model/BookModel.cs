@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -37,7 +37,11 @@ namespace FBReader.DataModel.Model
 
         [Column(DbType = "nvarchar(1024) not null")]
         public string Author { get; set; }
-        
+
+        [Obsolete]
+        [Column(CanBeNull = false, DbType = "int not null default(0)")]
+        public int AuthorHash { get; set; }
+
         [Column(CanBeNull = false)]
         public int CurrentTokenID { get; set; }
 
@@ -77,7 +81,7 @@ namespace FBReader.DataModel.Model
         [Column(DbType = "nvarchar(10) null")]
         public string Language { get; set; }
 
-        [Column(DbType = "ntext null", UpdateCheck = UpdateCheck.Never)]
+        [Column(DbType = "ntext null", UpdateCheck = UpdateCheck.Never, Name = "Annotation")]
         public string Description { get; set; }
     }
 }

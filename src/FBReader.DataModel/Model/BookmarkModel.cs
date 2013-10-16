@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -40,6 +40,10 @@ namespace FBReader.DataModel.Model
 
         [Column(DbType = "ntext not null", UpdateCheck = UpdateCheck.Never)]
         public string Text { get; set; }
+
+        [Obsolete]
+        [Column(CanBeNull = false, DbType = "bit not null default(0)")]
+        public bool Highlight { get; set; }
 
         [Column(CanBeNull = false)]
         public int Color { get; set; }

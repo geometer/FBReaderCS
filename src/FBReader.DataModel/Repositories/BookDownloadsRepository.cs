@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -18,6 +18,7 @@
  */
 
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
 using FBReader.DataModel.Model;
 
@@ -25,6 +26,8 @@ namespace FBReader.DataModel.Repositories
 {
     public class BookDownloadsRepository : IBookDownloadsRepository
     {
+        private static object _locker = new object();
+
         public void Add(BookDownloadModel item)
         {
             using (BookDataContext context = BookDataContext.Connect())
@@ -36,23 +39,37 @@ namespace FBReader.DataModel.Repositories
 
         public IEnumerable<BookDownloadModel> GetItems()
         {
-            using (BookDataContext context = BookDataContext.Connect())
+            lock (_locker)
             {
-                return (from t in context.Downloads
-                    orderby t.DownloadID
-                    select t).ToList<BookDownloadModel>();
+                using (BookDataContext context = BookDataContext.Connect())
+                {
+                    return (from t in context.Downloads
+                        orderby t.DownloadID
+                        select t).ToList<BookDownloadModel>();
+                }
             }
         }
 
         public void Remove(int downloadId)
         {
-            using (BookDataContext context = BookDataContext.Connect())
+            lock (_locker)
             {
-                BookDownloadModel model = context.Downloads.FirstOrDefault(t => t.DownloadID == downloadId);
-                if (model != null)
+                using (BookDataContext context = BookDataContext.Connect())
                 {
-                    context.Downloads.DeleteOnSubmit(model);
-                    context.SubmitChanges();
+                    try
+                    {
+                        BookDownloadModel model = context.Downloads.FirstOrDefault(t => t.DownloadID == downloadId);
+                        if (model != null)
+                        {
+                            context.Downloads.DeleteOnSubmit(model);
+                            context.SubmitChanges(ConflictMode.ContinueOnConflict);
+                        }
+                    }
+                    catch (ChangeConflictException)
+                    {
+                        context.ChangeConflicts.ResolveAll(RefreshMode.KeepChanges);
+                        context.SubmitChanges();
+                    }
                 }
             }
         }

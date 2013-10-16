@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -285,7 +285,7 @@ namespace FBReader.AppServices.ViewModels.Pages.Catalogs
             var multiPageReader = CatalogReader as ITreeCatalogReader;
             if (multiPageReader != null)
             {
-                CanLoadMore = multiPageReader.CanReadNextPage && FolderItems.Count != 0;
+                CanLoadMore = multiPageReader.CanReadNextPage &&  FolderItems != null &&FolderItems.Count != 0;
             }
         }
 

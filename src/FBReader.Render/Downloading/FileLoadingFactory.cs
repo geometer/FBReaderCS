@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -57,7 +57,8 @@ namespace FBReader.Render.Downloading
 
                 case CatalogType.SDCard:
                     return new SdCardFileLoader();
-
+                case CatalogType.StorageFolder:
+                    return new StorageFolderFileLoader();
                 default:
                     return null;
             }

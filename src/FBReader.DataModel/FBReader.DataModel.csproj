@@ -128,6 +128,7 @@
     <Compile Include="Changesets\Changeset4.cs" />
     <Compile Include="Changesets\Changeset5.cs" />
     <Compile Include="Changesets\Changeset6.cs" />
+    <Compile Include="Changesets\Changeset7.cs" />
     <Compile Include="Model\BookAcquisitionLinkModel.cs" />
     <Compile Include="Model\AnchorModel.cs" />
     <Compile Include="Model\BaseChangeset.cs" />

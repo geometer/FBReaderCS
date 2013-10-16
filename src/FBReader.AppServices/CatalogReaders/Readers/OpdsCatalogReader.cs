@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -71,7 +71,8 @@ namespace FBReader.AppServices.CatalogReaders.Readers
                                    new UnescapedQuotesFilter(), 
                                    new UnescapedSignsFilter(),
                                    new UnescapedHtmlDescriptionFilter(),
-                                   new AcquisitionBuyFilter()
+                                   new AcquisitionBuyFilter(),
+                                   new UrlWithoutProtocolFilter(), 
                                };
 
             CurrentFolder = new CatalogFolderModel
@@ -280,10 +281,13 @@ namespace FBReader.AppServices.CatalogReaders.Readers
             try
             {
                 CatalogContentDto dto;
-                using (var stringReader = new StringReader(opdsSource.ToString()))
+                using (var stringReader = new MemoryStream(Encoding.UTF8.GetBytes(opdsSource.ToString())))
                 {
-                    var xmlSerializer = new XmlSerializer(typeof(CatalogContentDto));
-                    dto = (CatalogContentDto)xmlSerializer.Deserialize(stringReader);
+                    using (var sanitizingStream = new XmlSanitizingStream(stringReader))
+                    {
+                        var xmlSerializer = new XmlSerializer(typeof(CatalogContentDto));
+                        dto = (CatalogContentDto)xmlSerializer.Deserialize(sanitizingStream);
+                    }   
                 }
 
                 var folder = dto.ToFolder(CatalogModel.Url, CatalogModel.Type, CatalogId);

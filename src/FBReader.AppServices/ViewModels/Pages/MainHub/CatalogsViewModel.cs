@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -80,6 +80,7 @@ namespace FBReader.AppServices.ViewModels.Pages.MainHub
                     Catalogs = new BindableCollection<CatalogDataModel>(_catalogRepository
                         .GetAll()
                         .Where(c => c.Type != CatalogType.SDCard || (c.Type == CatalogType.SDCard && isSdCardAvaliable))
+                        .Where(c => c.Type != CatalogType.StorageFolder)
                         .Select(_catalogController.ToCatalogDataModel));
                 });
         }

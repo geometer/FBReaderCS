@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -363,7 +363,7 @@ namespace FBReader.Common.ExtensionMethods
                 str = Regex.Replace(str, "<!DOCTYPE[^>]*>", string.Empty);
             try
             {
-                return XDocument.Parse(str);
+                return XDocument.Parse(str.Trim());
             }
             catch (Exception ex)
             {

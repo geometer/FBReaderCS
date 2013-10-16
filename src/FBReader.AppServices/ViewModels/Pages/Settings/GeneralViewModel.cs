@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -107,6 +107,13 @@ namespace FBReader.AppServices.ViewModels.Pages.Settings
                               OnTapAction = () => _navigationService.UriFor<OrientationSettingPageViewModel>().Navigate()
 
                           });
+            Items.Add(new SettingItemDataModel
+                      {
+                          GetSettingName = () => UISettings.SettingsPage_ScreenBrightness,
+                          GetSettingValue = _settingsController.GetBrightnessValue,
+                          OnTapAction = () => _navigationService.UriFor<ScreenBrightnessPageViewModel>().Navigate()
+                      });
+
             Items.Add(new SettingItemDataModel
                           {
                               GetSettingName = () => UISettings.SettingsPage_Menu,

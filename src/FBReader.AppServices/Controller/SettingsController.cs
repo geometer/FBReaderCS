@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -176,6 +176,11 @@ namespace FBReader.AppServices.Controller
                     throw new NotSupportedException();
             }
             return string.Format(UISettings.SettingsPage_Formatting_FlippingMode_Format, flippingMode.ToLowerInvariant());
+        }
+
+        public string GetBrightnessValue()
+        {
+            return string.Format("{0}%", AppSettings.Default.Brightness);
         }
     }
 }

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -44,7 +44,10 @@ namespace FBReader.AppServices.CatalogReaders.OpdsFilters
                 }
 
                 var newString = foundString.Replace("\"", "&quot;");
-                opdsSource.Replace(foundString, newString);
+                if (!string.IsNullOrEmpty(foundString))
+                {
+                    opdsSource.Replace(foundString, newString);
+                }
             }
         }
     }

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -21,6 +21,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
+using FBReader.Common.ExtensionMethods;
 using FBReader.DataModel.Changesets;
 using Microsoft.Phone.Data.Linq;
 
@@ -61,6 +62,7 @@ namespace FBReader.DataModel.Model
                 {
                     baseChangeset.Update(db, databaseSchemaUpdater);
                 }
+                
                 databaseSchemaUpdater.DatabaseSchemaVersion = changesets.Any() ? changesets.Max(t => t.Version) : 0;
                 databaseSchemaUpdater.Execute();
                 return;
@@ -93,7 +95,8 @@ namespace FBReader.DataModel.Model
                            new Changeset3(),
                            new Changeset4(),
                            new Changeset5(),
-                           new Changeset6()
+                           new Changeset6(),
+                           new Changeset7()
                        };
         }
 

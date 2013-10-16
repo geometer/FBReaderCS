@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -199,6 +199,11 @@ namespace FBReader.AppServices.ViewModels.Pages
                               .WithParam(vm => vm.CatalogId, CatalogId)
                               .WithParam(vm => CatalogBookItemKey, TransientStorage.Put(CatalogBookItemModel))
                               .Navigate();
+        }
+
+        public void GoToBrightness()
+        {
+            _navigationService.UriFor<ScreenBrightnessPageViewModel>().Navigate();
         }
 
         public void AddRemoveToFavourites()

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Author: CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
@@ -24,8 +24,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("FBReader")]
 [assembly: AssemblyCopyright("Copyright © CactusSoft 2013")]
 [assembly: AssemblyTrademark("")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.1.450")]
+[assembly: AssemblyFileVersion("1.0.1.450")]
 
 [assembly: ComVisible(false)]
 
