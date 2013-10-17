@@ -17,6 +17,7 @@
  * 02110-1301, USA.
  */
 
+using System;
 using System.Data.Linq.Mapping;
 using Microsoft.Phone.Data.Linq.Mapping;
 
