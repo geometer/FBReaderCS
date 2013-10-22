@@ -81,13 +81,13 @@ namespace FBReader.AppServices
             dataContext.Catalogs.InsertOnSubmit(catalog);
 
             catalog = new CatalogModel
-                          {
-                              Title = UIStrings.SkyDrive_Catalog_Title,
-                              Description = UIStrings.SkyDrive_Catalog_Description,
-                              IconLocalPath = "/Resources/Icons/skydrive.png",
-                              Type = CatalogType.SkyDrive,
-                              AccessDenied = true
-                          };
+						{
+								Title = UIStrings.SkyDrive_Catalog_Title,
+								Description = UIStrings.SkyDrive_Catalog_Description,
+								IconLocalPath = "/Resources/Icons/skydrive.png",
+								Type = CatalogType.SkyDrive,
+								AccessDenied = true
+						};
             dataContext.Catalogs.InsertOnSubmit(catalog);
 
            
