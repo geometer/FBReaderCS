@@ -1,5 +1,5 @@
 ﻿/*
- * Author: CactusSoft (http://cactussoft.biz/), 2013
+ * Author: Vitaly Leschenko, CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
-using FBReader.Common.ExtensionMethods;
 using FBReader.DataModel.Changesets;
 using Microsoft.Phone.Data.Linq;
 

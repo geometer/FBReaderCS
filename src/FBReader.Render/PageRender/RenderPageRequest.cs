@@ -1,5 +1,5 @@
 /*
- * Author: CactusSoft (http://cactussoft.biz/), 2013
+ * Author: Vitaly Leschenko, CactusSoft (http://cactussoft.biz/), 2013
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,6 @@
  */
 
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Windows.Controls;
 using FBReader.DataModel.Model;
 using FBReader.Render.RenderData;
