@@ -41,7 +41,7 @@ namespace FBReader.AppServices.Services
         private string GetUniqueId()
         {
             object anid2;
-            if (UserExtendedProperties.TryGetValue("ANID2", out anid2))
+            if (UserExtendedProperties.TryGetValue("ANID2", out anid2) && anid2 != null)
             {
                 return anid2.ToString();
             }
